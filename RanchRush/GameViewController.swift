@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    // teste fatal error
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
