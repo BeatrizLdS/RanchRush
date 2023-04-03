@@ -13,6 +13,7 @@
 		FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF30650A29DAFF6E008E711C /* Main.storyboard */; };
 		FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF30650D29DAFF6F008E711C /* Assets.xcassets */; };
 		FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF30650F29DAFF6F008E711C /* LaunchScreen.storyboard */; };
+		FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		FF30650B29DAFF6E008E711C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF30650D29DAFF6F008E711C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF30651029DAFF6F008E711C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSceneProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		FF30651E29DB0537008E711C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF30650729DAFF6E008E711C /* GameScene.swift in Sources */,
+				FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */,
 				FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */,
 				FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */,
 			);
