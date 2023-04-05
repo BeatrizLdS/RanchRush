@@ -14,6 +14,9 @@
 		FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF30650D29DAFF6F008E711C /* Assets.xcassets */; };
 		FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF30650F29DAFF6F008E711C /* LaunchScreen.storyboard */; };
 		FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */; };
+		FF30652929DC5ACB008E711C /* SpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30652829DC5ACB008E711C /* SpriteNodeExtension.swift */; };
+		FF30652B29DC5B0F008E711C /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30652A29DC5B0F008E711C /* Obstacle.swift */; };
+		FF30652D29DC5D29008E711C /* SetObstacleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30652C29DC5D29008E711C /* SetObstacleProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		FF30650D29DAFF6F008E711C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF30651029DAFF6F008E711C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSceneProtocol.swift; sourceTree = "<group>"; };
+		FF30652829DC5ACB008E711C /* SpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteNodeExtension.swift; sourceTree = "<group>"; };
+		FF30652A29DC5B0F008E711C /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
+		FF30652C29DC5D29008E711C /* SetObstacleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetObstacleProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		FF30651C29DB0505008E711C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF30652829DC5ACB008E711C /* SpriteNodeExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 		FF30651D29DB052D008E711C /* SpriteNodes */ = {
 			isa = PBXGroup;
 			children = (
+				FF30652A29DC5B0F008E711C /* Obstacle.swift */,
 			);
 			path = SpriteNodes;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */,
+				FF30652C29DC5D29008E711C /* SetObstacleProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -195,9 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF30652D29DC5D29008E711C /* SetObstacleProtocol.swift in Sources */,
 				FF30650729DAFF6E008E711C /* GameScene.swift in Sources */,
 				FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */,
+				FF30652B29DC5B0F008E711C /* Obstacle.swift in Sources */,
 				FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */,
+				FF30652929DC5ACB008E711C /* SpriteNodeExtension.swift in Sources */,
 				FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
