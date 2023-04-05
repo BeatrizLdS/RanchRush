@@ -12,9 +12,20 @@ class GameScene: SKScene {
     var ground = SKSpriteNode()
     var sky = SKSpriteNode()
     
+    let player: Player = {
+        let player = Player()
+        player.setFrames()
+        player.anchorPoint = CGPoint.zero
+        player.xScale = 0.25
+        player.yScale = 0.5
+        return player
+    } ()
+    
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 1, y: 1)
         backgroundColor = UIColor(named: "background")!
+        addSwipeGestureRecognizer()
+        player.loopForever(state: .run)
         setScene()
     }
 
@@ -22,10 +33,29 @@ class GameScene: SKScene {
         moveGround()
         moveSky()
     }
+
+    func addSwipeGestureRecognizer() {
+        let swipeDirections: [UISwipeGestureRecognizer.Direction] = [.up, .down]
+        for direction in swipeDirections {
+            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+            swipeRecognizer.direction = direction
+            self.view?.addGestureRecognizer(swipeRecognizer)
+        }
+    }
+    
+    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction{
+        case .up:
+            player.jump()
+        case .down:
+            player.dead()
+        default:
+            print("Sem gesture!")
+        }
+    }
     
     func createGround(){
         for i in 0...3{
-
             let ground = SKSpriteNode(imageNamed: "image-background")
             ground.name = "image-background"
             ground.size = CGSize(width: (self.scene?.size.width)!, height: 0.3)
@@ -37,7 +67,6 @@ class GameScene: SKScene {
     }
     
     func createSky(){
-        
         for i in 0...3{
             let sky = SKSpriteNode(imageNamed: "image-sky")
             sky.name = "image-sky"
@@ -76,15 +105,18 @@ class GameScene: SKScene {
 
 extension GameScene: SetSceneProtocol {
     func addChilds() {
+        addChild(player)
         createSky()
         createGround()
     }
     
     func setPositions() {
+        player.calculateSize(windowWidth: frame.height, windowHeight: frame.height)
+        player.position = CGPoint(x: frame.minX + 0.07, y: frame.minY + 0.15)
+        player.zPosition = 2
     }
     
     func setPhysics() {
     }
-    
     
 }
