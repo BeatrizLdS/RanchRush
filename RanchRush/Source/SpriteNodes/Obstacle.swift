@@ -27,7 +27,6 @@ class Obstacle: SKSpriteNode {
         self.obstacleType = obstacleType
         self.velocity = speed
         super.init(texture: SKTexture(imageNamed: "zombie"), color: .white, size: .zero)
-//        setPhysics()
         setObstacle(startPosition: startPosition, xOffset: xOffset)
         configureMovement()
     }
@@ -57,7 +56,6 @@ class Obstacle: SKSpriteNode {
         )
         run(movement)
     }
-    
 }
 
 extension Obstacle: SetObstacleProtocol {
@@ -68,5 +66,4 @@ extension Obstacle: SetObstacleProtocol {
     func setPhysics() {
         setFrames()
     }
-    
 }
