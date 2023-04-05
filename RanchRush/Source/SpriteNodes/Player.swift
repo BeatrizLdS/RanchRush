@@ -21,8 +21,8 @@ class Player: SKSpriteNode {
     func setFrames() {
         let atlasName = "Player\(state.rawValue)"
         let newFrames = getFrames(with: state.rawValue, atlasName: atlasName)
-        if  newFrames?.isEmpty == false {
-            self.frames = newFrames!
+        if  newFrames.isEmpty == false {
+            self.frames = newFrames
             self.texture = self.frames[0]
         }
     }

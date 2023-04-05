@@ -11,7 +11,6 @@ import GameplayKit
 class GameScene: SKScene {
     var ground = SKSpriteNode()
     var sky = SKSpriteNode()
-    
     let player: Player = {
         let player = Player()
         player.setFrames()
@@ -20,6 +19,10 @@ class GameScene: SKScene {
         player.yScale = 0.5
         return player
     } ()
+    
+    let obstacleTypes: [ObstacleType] = [.female, .male]
+    var numberObstacles = 5
+    var obstaclesSpeed: CGFloat = 0.1
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 1, y: 1)
@@ -32,6 +35,24 @@ class GameScene: SKScene {
     override func update(_ currentTime: CFTimeInterval) {
         moveGround()
         moveSky()
+
+        let activeObstacles = children.compactMap{ $0 as? Obstacle }
+        
+        for child in activeObstacles {
+            if child.frame.maxX < 0 {
+                if !frame.intersects(child.frame) {
+                    child.removeFromParent()
+                }
+            }
+        }
+        
+        if activeObstacles.isEmpty {
+            createObstacles()
+            numberObstacles += 2
+//            if obstaclesSpeed < 1 {
+//                obstaclesSpeed += 0.05
+//            }
+        }
     }
 
     func addSwipeGestureRecognizer() {
@@ -54,7 +75,22 @@ class GameScene: SKScene {
         }
     }
     
-    func createGround(){
+    func createObstacles() {
+        let obstacleOffsetx: CGFloat = 0.4
+        let obstacleStartX: Double = 0.5
+        
+       let obstacles = generateRandomObstacles(
+            startX: obstacleStartX,
+            spaceBetween: obstacleOffsetx,
+            numberObstacles: self.numberObstacles
+        )
+        
+        for obstacle in obstacles {
+            addChild(obstacle)
+        }
+    }
+    
+    func createGround() {
         for i in 0...3{
             let ground = SKSpriteNode(imageNamed: "image-background")
             ground.name = "image-background"
@@ -79,29 +115,51 @@ class GameScene: SKScene {
     }
     
     func moveGround() {
-        
         enumerateChildNodes(withName: "image-background") { node, error in
-            node.position.x -= 0.002
+            node.position.x -= 0.00165
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
-
+                
             }
         }
-        
     }
     
     func moveSky() {
-        
         enumerateChildNodes(withName: "image-sky") { node, error in
             node.position.x -= 0.0005
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
-
+                
             }
         }
-        
     }
+    
+    func generateRandomObstacles(startX: Double, spaceBetween: CGFloat, numberObstacles: Int) -> [Obstacle] {
+        var obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
+        let positions = Array(stride(from: 0.05, to: 0.5, by: 0.05)) // posições dos inimigos
+        var obstacles: [Obstacle] = []
+        
+        for index in 0...numberObstacles {
+            obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
+            let space = spaceBetween * CGFloat(index) + (positions.randomElement() ?? 0)
+            
+            let startPosition = CGPoint(x: frame.maxX, y: frame.minY + 0.2)
+            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacletypeIndex],
+                                    startPosition: startPosition,
+                                    xOffset: space,
+                                    speed: obstaclesSpeed)
+            obstacle.xScale = 0.1
+            obstacle.yScale = 0.3
+            obstacle.zPosition = 2
+            obstacle.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
+            obstacle.anchorPoint = .zero
+            obstacles.append(obstacle)
+        }
+        return obstacles
+    }
+      
 }
+    
 
 extension GameScene: SetSceneProtocol {
     func addChilds() {
@@ -116,7 +174,6 @@ extension GameScene: SetSceneProtocol {
         player.zPosition = 2
     }
     
-    func setPhysics() {
-    }
+    func setPhysics() { }
     
 }
