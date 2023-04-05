@@ -79,31 +79,13 @@ class GameScene: SKScene {
         let obstacleOffsetx: CGFloat = 0.4
         let obstacleStartX: Double = 0.5
         
-        generateRandomObstacles(
+       let obstacles = generateRandomObstacles(
             startX: obstacleStartX,
             spaceBetween: obstacleOffsetx,
             numberObstacles: self.numberObstacles
         )
-    }
-    
-    func generateRandomObstacles(startX: Double, spaceBetween: CGFloat, numberObstacles: Int) {
-        var obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
-        let positions = Array(stride(from: 0.05, to: 0.5, by: 0.05)) // posições dos inimigos
         
-        for index in 0...numberObstacles {
-            obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
-            let space = spaceBetween * CGFloat(index) + (positions.randomElement() ?? 0)
-            
-            let startPosition = CGPoint(x: frame.maxX, y: frame.minY + 0.2)
-            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacletypeIndex],
-                                    startPosition: startPosition,
-                                    xOffset: space,
-                                    speed: obstaclesSpeed)
-            obstacle.xScale = 0.1
-            obstacle.yScale = 0.3
-            obstacle.zPosition = 2
-            obstacle.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
-            obstacle.anchorPoint = .zero
+        for obstacle in obstacles {
             addChild(obstacle)
         }
     }
@@ -137,7 +119,7 @@ class GameScene: SKScene {
             node.position.x -= 0.00165
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
-
+                
             }
         }
     }
@@ -147,11 +129,35 @@ class GameScene: SKScene {
             node.position.x -= 0.0005
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
-
+                
             }
         }
     }
+    
+    func generateRandomObstacles(startX: Double, spaceBetween: CGFloat, numberObstacles: Int) -> [Obstacle] {
+        var obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
+        let positions = Array(stride(from: 0.05, to: 0.5, by: 0.05)) // posições dos inimigos
+        var obstacles: [Obstacle] = []
         
+        for index in 0...numberObstacles {
+            obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
+            let space = spaceBetween * CGFloat(index) + (positions.randomElement() ?? 0)
+            
+            let startPosition = CGPoint(x: frame.maxX, y: frame.minY + 0.2)
+            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacletypeIndex],
+                                    startPosition: startPosition,
+                                    xOffset: space,
+                                    speed: obstaclesSpeed)
+            obstacle.xScale = 0.1
+            obstacle.yScale = 0.3
+            obstacle.zPosition = 2
+            obstacle.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
+            obstacle.anchorPoint = .zero
+            obstacles.append(obstacle)
+        }
+        return obstacles
+    }
+      
 }
     
 
