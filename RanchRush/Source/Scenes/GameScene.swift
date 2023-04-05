@@ -11,7 +11,6 @@ import GameplayKit
 class GameScene: SKScene {
     var ground = SKSpriteNode()
     var sky = SKSpriteNode()
-    
     let player: Player = {
         let player = Player()
         player.setFrames()
@@ -50,9 +49,9 @@ class GameScene: SKScene {
         if activeObstacles.isEmpty {
             createObstacles()
             numberObstacles += 2
-            if obstaclesSpeed < 1 {
-                obstaclesSpeed += 0.05
-            }
+//            if obstaclesSpeed < 1 {
+//                obstaclesSpeed += 0.05
+//            }
         }
     }
 
@@ -135,7 +134,7 @@ class GameScene: SKScene {
     
     func moveGround() {
         enumerateChildNodes(withName: "image-background") { node, error in
-            node.position.x -= 0.002
+            node.position.x -= 0.00165
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
 
