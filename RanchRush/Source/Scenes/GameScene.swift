@@ -22,10 +22,10 @@ class GameScene: SKScene {
     
     let obstacleTypes: [ObstacleType] = [.female, .male]
     var numberObstacles = 5
-    var obstaclesSpeed: CGFloat = 0.1
+    var sceneSpeed: CGFloat = 1
     
     override func didMove(to view: SKView) {
-        self.anchorPoint = CGPoint(x: 1, y: 1)
+        self.anchorPoint = CGPoint.zero
         backgroundColor = UIColor(named: "background")!
         addSwipeGestureRecognizer()
         player.loopForever(state: .run)
@@ -34,7 +34,7 @@ class GameScene: SKScene {
 
     override func update(_ currentTime: CFTimeInterval) {
         moveGround()
-        moveSky()
+//        moveSky()
 
         let activeObstacles = children.compactMap{ $0 as? Obstacle }
         
@@ -94,10 +94,13 @@ class GameScene: SKScene {
         for i in 0...3{
             let ground = SKSpriteNode(imageNamed: "image-background")
             ground.name = "image-background"
-            ground.size = CGSize(width: (self.scene?.size.width)!, height: 0.3)
-            ground.anchorPoint = CGPoint(x: 1, y: 2)
             ground.zPosition = 2
-            ground.position = CGPoint(x: CGFloat(i) * ground.size.width, y: -(self.frame.size.height / 2))
+            ground.xScale = 1
+            ground.yScale = 0.3
+            ground.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
+            ground.anchorPoint = CGPoint.zero
+            ground.position = CGPoint(x: CGFloat(i) * ground.size.width,
+                                      y: frame.minY - (ground.frame.height/3))
             self.addChild(ground)
         }
     }
@@ -116,7 +119,7 @@ class GameScene: SKScene {
     
     func moveGround() {
         enumerateChildNodes(withName: "image-background") { node, error in
-            node.position.x -= 0.00165
+            node.position.x -= self.sceneSpeed
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
                 
@@ -147,7 +150,7 @@ class GameScene: SKScene {
             let obstacle = Obstacle(obstacleType: obstacleTypes[obstacletypeIndex],
                                     startPosition: startPosition,
                                     xOffset: space,
-                                    speed: obstaclesSpeed)
+                                    speed: sceneSpeed)
             obstacle.xScale = 0.1
             obstacle.yScale = 0.3
             obstacle.zPosition = 2
@@ -163,8 +166,8 @@ class GameScene: SKScene {
 
 extension GameScene: SetSceneProtocol {
     func addChilds() {
-        addChild(player)
-        createSky()
+        //addChild(player)
+        //createSky()
         createGround()
     }
     
