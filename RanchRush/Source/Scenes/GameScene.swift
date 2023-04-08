@@ -38,7 +38,6 @@ class GameScene: SKScene {
         moveSky()
 
         let activeObstacles = children.compactMap{ $0 as? Obstacle }
-        
         for child in activeObstacles {
             if child.frame.maxX < 0 {
                 if !frame.intersects(child.frame) {
@@ -49,7 +48,9 @@ class GameScene: SKScene {
         
         if activeObstacles.isEmpty {
             createObstacles()
-            numberObstacles += 2
+            if numberObstacles < 30 {
+                numberObstacles += 2
+            }
 //            if obstaclesSpeed < 10 {
 //                obstaclesSpeed += 1
 //            }
@@ -141,7 +142,7 @@ class GameScene: SKScene {
     
     func generateRandomObstacles(spaceBetween: CGFloat, numberObstacles: Int) -> [Obstacle] {
         var obstacleTypeIndex = 0
-        let extraDistance = Array(stride(from: 20, to: 100, by: 10))
+        let extraDistance = Array(stride(from: 50, to: 150, by: 10))
         var obstacles: [Obstacle] = []
         var currentXPosition = frame.minX
         

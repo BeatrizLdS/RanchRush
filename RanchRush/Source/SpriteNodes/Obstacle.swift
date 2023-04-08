@@ -46,13 +46,14 @@ class Obstacle: SKSpriteNode {
     func configureMovement() {
         let path = UIBezierPath()
         path.move(to: .zero)
-        path.addLine(to: CGPoint(x: -100, y: 0))
+        path.addLine(to: CGPoint(x: -1000000,
+                                 y: 0))
         
         let movement = SKAction.follow(
             path.cgPath,
             asOffset: true,
             orientToPath: false,
-            speed: velocity
+            speed: velocity * 100
         )
         run(movement)
     }
