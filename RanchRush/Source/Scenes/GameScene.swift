@@ -144,7 +144,8 @@ class GameScene: SKScene {
         var obstacleTypeIndex = 0
         let extraDistance = Array(stride(from: 50, to: 150, by: 10))
         var obstacles: [Obstacle] = []
-        var currentXPosition = frame.minX
+        var currentXPosition = frame.maxX
+        let ground = childNode(withName: "image-background")
         
         for _ in 0...(numberObstacles-1) {
             obstacleTypeIndex = Int.random(in: 0..<obstacleTypes.count)
@@ -152,7 +153,7 @@ class GameScene: SKScene {
                                     speed: sceneSpeed)
             obstacle.anchorPoint = CGPoint.zero
             obstacle.position = CGPoint(x: currentXPosition,
-                                        y: frame.midY)
+                                        y: (ground?.frame.maxY)!)
             obstacle.xScale = 0.1
             obstacle.yScale = 0.2
             obstacle.zPosition = 2

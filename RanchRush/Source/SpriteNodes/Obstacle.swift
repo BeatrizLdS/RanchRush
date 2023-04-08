@@ -53,7 +53,7 @@ class Obstacle: SKSpriteNode {
             path.cgPath,
             asOffset: true,
             orientToPath: false,
-            speed: velocity * 100
+            speed: velocity * 58
         )
         run(movement)
     }
