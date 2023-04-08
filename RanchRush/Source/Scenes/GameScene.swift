@@ -77,11 +77,9 @@ class GameScene: SKScene {
     }
     
     func createObstacles() {
-        let obstacleOffsetx: CGFloat = 0.4
-        let obstacleStartX: Double = 0.5
+        let obstacleOffsetx: CGFloat = 120
         
        let obstacles = generateRandomObstacles(
-            startX: obstacleStartX,
             spaceBetween: obstacleOffsetx,
             numberObstacles: self.numberObstacles
         )
@@ -141,26 +139,28 @@ class GameScene: SKScene {
         }
     }
     
-    func generateRandomObstacles(startX: Double, spaceBetween: CGFloat, numberObstacles: Int) -> [Obstacle] {
-        var obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
-        let positions = Array(stride(from: 0.05, to: 0.5, by: 0.05)) // posições dos inimigos
+    func generateRandomObstacles(spaceBetween: CGFloat, numberObstacles: Int) -> [Obstacle] {
+        var obstacleTypeIndex = 0
+        let extraDistance = Array(stride(from: 20, to: 100, by: 10))
         var obstacles: [Obstacle] = []
+        var currentXPosition = frame.minX
         
-        for index in 0...numberObstacles {
-            obstacletypeIndex = Int.random(in: 0..<obstacleTypes.count)
-            let space = spaceBetween * CGFloat(index) + (positions.randomElement() ?? 0)
-            
-            let startPosition = CGPoint(x: frame.maxX, y: frame.minY + 0.2)
-            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacletypeIndex],
-                                    startPosition: startPosition,
-                                    xOffset: space,
+        for _ in 0...(numberObstacles-1) {
+            obstacleTypeIndex = Int.random(in: 0..<obstacleTypes.count)
+            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacleTypeIndex],
                                     speed: sceneSpeed)
+            obstacle.anchorPoint = CGPoint.zero
+            obstacle.position = CGPoint(x: currentXPosition,
+                                        y: frame.midY)
             obstacle.xScale = 0.1
-            obstacle.yScale = 0.3
+            obstacle.yScale = 0.2
             obstacle.zPosition = 2
-            obstacle.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
-            obstacle.anchorPoint = .zero
+            obstacle.calculateSize(windowWidth: frame.width,
+                                   windowHeight: frame.height)
             obstacles.append(obstacle)
+            
+            currentXPosition = currentXPosition + spaceBetween
+            currentXPosition = currentXPosition + CGFloat((extraDistance.randomElement() ?? 0))
         }
         return obstacles
     }
