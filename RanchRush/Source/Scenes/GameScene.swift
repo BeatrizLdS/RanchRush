@@ -15,8 +15,9 @@ class GameScene: SKScene {
         let player = Player()
         player.setFrames()
         player.anchorPoint = CGPoint.zero
-        player.xScale = 0.25
-        player.yScale = 0.5
+        player.zPosition = 2
+        player.xScale = 0.3
+        player.yScale = 0.3
         return player
     } ()
     
@@ -169,14 +170,16 @@ class GameScene: SKScene {
 
 extension GameScene: SetSceneProtocol {
     func addChilds() {
-        //addChild(player)
         createSky()
         createGround()
+        addChild(player)
     }
     
     func setPositions() {
         player.calculateSize(windowWidth: frame.height, windowHeight: frame.height)
-        player.position = CGPoint(x: frame.minX + 0.07, y: frame.minY + 0.15)
+        let ground = childNode(withName: "image-background")
+        player.position = CGPoint(x: frame.minX + 10,
+                                  y: (ground?.frame.maxY)! - 10)
         player.zPosition = 2
     }
     
