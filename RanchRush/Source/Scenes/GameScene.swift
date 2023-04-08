@@ -34,7 +34,7 @@ class GameScene: SKScene {
 
     override func update(_ currentTime: CFTimeInterval) {
         moveGround()
-//        moveSky()
+        moveSky()
 
         let activeObstacles = children.compactMap{ $0 as? Obstacle }
         
@@ -49,8 +49,8 @@ class GameScene: SKScene {
         if activeObstacles.isEmpty {
             createObstacles()
             numberObstacles += 2
-//            if obstaclesSpeed < 1 {
-//                obstaclesSpeed += 0.05
+//            if obstaclesSpeed < 10 {
+//                obstaclesSpeed += 1
 //            }
         }
     }
@@ -109,10 +109,13 @@ class GameScene: SKScene {
         for i in 0...3{
             let sky = SKSpriteNode(imageNamed: "image-sky")
             sky.name = "image-sky"
-            sky.size = CGSize(width: frame.width, height: frame.height)
-            sky.anchorPoint = CGPoint(x: 1, y: 0.5)
+            sky.xScale = 1
+            sky.yScale = 1
+            sky.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
+            sky.anchorPoint = CGPoint.zero
             sky.zPosition = 1
-            sky.position = CGPoint(x: CGFloat(i) * sky.size.width, y: -(self.frame.size.height / 2))
+            sky.position = CGPoint(x: CGFloat(i) * sky.size.width,
+                                   y: frame.minY)
             self.addChild(sky)
         }
     }
@@ -129,7 +132,7 @@ class GameScene: SKScene {
     
     func moveSky() {
         enumerateChildNodes(withName: "image-sky") { node, error in
-            node.position.x -= 0.0005
+            node.position.x -= self.sceneSpeed/3
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
                 
@@ -167,7 +170,7 @@ class GameScene: SKScene {
 extension GameScene: SetSceneProtocol {
     func addChilds() {
         //addChild(player)
-        //createSky()
+        createSky()
         createGround()
     }
     
