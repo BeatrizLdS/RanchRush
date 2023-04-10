@@ -16,8 +16,8 @@ class GameScene: SKScene {
         player.setFrames()
         player.anchorPoint = CGPoint.zero
         player.zPosition = 2
-        player.xScale = 0.3
-        player.yScale = 0.3
+        player.xScale = 0.5
+        player.yScale = 0.5
         return player
     } ()
     
@@ -29,7 +29,7 @@ class GameScene: SKScene {
         self.anchorPoint = CGPoint.zero
         backgroundColor = UIColor(named: "background")!
         addSwipeGestureRecognizer()
-        player.loopForever(state: .run)
+        player.loopForever(state: .idle)
         setScene()
     }
 
