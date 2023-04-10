@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		368A459129E43D5E0007BF5B /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459029E43D5E0007BF5B /* Collisions.swift */; };
+		368A459329E447E30007BF5B /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459229E447E30007BF5B /* TitleScene.swift */; };
+		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
 		FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */; };
 		FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650029DAFF6E008E711C /* AppDelegate.swift */; };
 		FF30650729DAFF6E008E711C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650629DAFF6E008E711C /* GameScene.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		368A459029E43D5E0007BF5B /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
+		368A459229E447E30007BF5B /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtension.swift; sourceTree = "<group>"; };
 		FF3064FD29DAFF6E008E711C /* RanchRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF30650029DAFF6E008E711C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		368A458F29E43D4D0007BF5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				368A459029E43D5E0007BF5B /* Collisions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FF3064F429DAFF6E008E711C = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +98,7 @@
 		FF30651829DB02F7008E711C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				368A458F29E43D4D0007BF5B /* Model */,
 				FF30651E29DB0537008E711C /* Protocols */,
 				FF30651D29DB052D008E711C /* SpriteNodes */,
 				FF30651C29DB0505008E711C /* Extensions */,
@@ -103,7 +118,9 @@
 		FF30651B29DB04F8008E711C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				368A459229E447E30007BF5B /* TitleScene.swift */,
 				FF30650629DAFF6E008E711C /* GameScene.swift */,
+				368A459429E447F40007BF5B /* GameOverScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -204,10 +221,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368A459529E447F40007BF5B /* GameOverScene.swift in Sources */,
 				FF30650729DAFF6E008E711C /* GameScene.swift in Sources */,
 				FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */,
+				368A459129E43D5E0007BF5B /* Collisions.swift in Sources */,
 				FF30652B29DC5B0F008E711C /* Obstacle.swift in Sources */,
 				FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */,
+				368A459329E447E30007BF5B /* TitleScene.swift in Sources */,
 				FF30652629DC4EF8008E711C /* Player.swift in Sources */,
 				FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */,
 				FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */,

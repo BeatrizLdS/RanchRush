@@ -29,6 +29,9 @@ class Obstacle: SKSpriteNode {
         super.init(texture: SKTexture(imageNamed: "zombie"), color: .white, size: .zero)
         setFrames()
         configureMovement()
+        
+        
+        name = "obstacle"
     }
     
     required init?(coder aDecoder: NSCoder) {
