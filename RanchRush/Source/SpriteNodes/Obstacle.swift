@@ -23,11 +23,11 @@ class Obstacle: SKSpriteNode {
     private var state: ObstacleState = .idle
     private var velocity: CGFloat
 
-    init(obstacleType: ObstacleType, startPosition: CGPoint, xOffset: CGFloat, speed: CGFloat) {
+    init(obstacleType: ObstacleType, speed: CGFloat) {
         self.obstacleType = obstacleType
         self.velocity = speed
         super.init(texture: SKTexture(imageNamed: "zombie"), color: .white, size: .zero)
-        setObstacle(startPosition: startPosition, xOffset: xOffset)
+        setFrames()
         configureMovement()
     }
     
@@ -46,24 +46,15 @@ class Obstacle: SKSpriteNode {
     func configureMovement() {
         let path = UIBezierPath()
         path.move(to: .zero)
-        path.addLine(to: CGPoint(x: -100, y: 0))
+        path.addLine(to: CGPoint(x: -1000000,
+                                 y: 0))
         
         let movement = SKAction.follow(
             path.cgPath,
             asOffset: true,
             orientToPath: false,
-            speed: velocity
+            speed: velocity * 58
         )
         run(movement)
-    }
-}
-
-extension Obstacle: SetObstacleProtocol {
-    func setPosition(startPosition: CGPoint, xOffset: CGFloat) {
-        position = CGPoint(x: startPosition.x + xOffset, y: startPosition.y)
-    }
-    
-    func setPhysics() {
-        setFrames()
     }
 }
