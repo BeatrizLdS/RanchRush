@@ -39,7 +39,7 @@ class GameScene: SKScene {
         return scoreCounter
     }()
     
-    let obstacleTypes: [ObstacleType] = [.chicken, .female, .male]
+    let obstacleTypes: [ObstacleType] = [.chicken, .cow]
     var numberObstacles = 5
     var sceneSpeed: CGFloat = 3
 
@@ -163,11 +163,11 @@ class GameScene: SKScene {
                 obstacleType: obstacleTypes[obstacleTypeIndex],
                 speed: sceneSpeed
             )
-            obstacle.position = CGPoint(
-                x: currentXPosition,
-                y: (ground?.frame.maxY)! * 1.2
-            )
             obstacle.zPosition = 2
+            obstacle.generatePosition(
+                x: currentXPosition,
+                y: (ground?.frame.maxY)!
+            )
             obstacle.generateSize(
                 width: frame.width,
                 height: frame.height

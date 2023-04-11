@@ -16,6 +16,7 @@ enum ObstacleType: String {
     case female = "FemaleZombie"
     case male = "MaleZombie"
     case chicken = "Chicken"
+    case cow = "Cow"
 }
 
 class Obstacle: SKSpriteNode {
@@ -92,11 +93,31 @@ class Obstacle: SKSpriteNode {
         case .chicken:
             xScale = 0.05
             yScale = 0.1
-            
+        case .cow:
+            xScale = 0.08
+            yScale = 0.2
         }
         calculateSize(
             windowWidth: width,
             windowHeight: height
+        )
+    }
+    
+    func generatePosition(x: CGFloat, y: CGFloat) {
+        var multiplierY: CGFloat = 0
+        switch obstacleType {
+        case .female:
+            multiplierY = 1.49
+        case .male:
+            multiplierY = 1.49
+        case .chicken:
+            multiplierY = 1.2
+        case .cow:
+            multiplierY = 1.5
+        }
+        position = CGPoint(
+            x: x,
+            y: y * multiplierY
         )
     }
     
