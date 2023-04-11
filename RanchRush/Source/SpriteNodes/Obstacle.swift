@@ -7,21 +7,6 @@
 
 import SpriteKit
 
-enum ObstacleState: String {
-    case idle = "Idle"
-    case attack = "Attack"
-}
-
-enum ObstacleType: String {
-    case female = "FemaleZombie"
-    case male = "MaleZombie"
-    case chicken = "Chicken"
-    case cow = "Cow"
-    case horse = "Horse"
-    case sheep = "Sheep"
-    case hay = "Hay"
-}
-
 class Obstacle: SKSpriteNode {
     private var state: ObstacleState = .idle
     private var frames: [SKTexture] = []
