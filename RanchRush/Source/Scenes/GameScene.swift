@@ -23,7 +23,7 @@ class GameScene: SKScene {
     let player: Player = {
         let player = Player()
         player.setFrames()
-        player.anchorPoint = CGPoint(x: 0.2, y: 0.2)
+        player.anchorPoint = CGPoint(x: 0.515, y: 0.15)
         player.zPosition = 2
         player.xScale = 0.5
         player.yScale = 0.5
@@ -41,11 +41,11 @@ class GameScene: SKScene {
     
     let obstacleTypes: [ObstacleType] = [.female, .male]
     var numberObstacles = 5
-    var sceneSpeed: CGFloat = 3
+    var sceneSpeed: CGFloat = 4
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         player.jump()
-        player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 43), duration: 0.2))
+        player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 110), duration: 0.2))
     }
     
     override func didMove(to view: SKView) {
@@ -131,7 +131,7 @@ class GameScene: SKScene {
                                       y: frame.minY - (ground.frame.height/3))
             ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
                             width: ground.size.width,
-                            height: ground.size.height * 1.8))
+                            height: ground.size.height * 2.0))
                         ground.physicsBody?.isDynamic = false
             self.addChild(ground)
         }
@@ -192,8 +192,8 @@ class GameScene: SKScene {
             obstacle.calculateSize(windowWidth: frame.width,
                                    windowHeight: frame.height)
             obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
-                width: obstacle.size.width * 0.5,
-                height: obstacle.size.height * 0.5))
+                width: obstacle.size.width * 0.2,
+                height: obstacle.size.height * 0.2))
             obstacle.physicsBody?.affectedByGravity = false
             obstacle.physicsBody?.categoryBitMask = CollisionType.obstacle.rawValue
             obstacle.physicsBody?.isDynamic = false
