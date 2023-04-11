@@ -18,6 +18,7 @@ enum ObstacleType: String {
     case chicken = "Chicken"
     case cow = "Cow"
     case horse = "Horse"
+    case sheep = "Sheep"
 }
 
 class Obstacle: SKSpriteNode {
@@ -100,6 +101,9 @@ class Obstacle: SKSpriteNode {
         case .horse:
             xScale = 0.1
             yScale = 0.25
+        case .sheep:
+            xScale = 0.1
+            yScale = 0.2
         }
         calculateSize(
             windowWidth: width,
@@ -120,6 +124,8 @@ class Obstacle: SKSpriteNode {
             multiplierY = 1.5
         case .horse:
             multiplierY = 1.6
+        case .sheep:
+            multiplierY = 1.35
         }
         position = CGPoint(
             x: x,

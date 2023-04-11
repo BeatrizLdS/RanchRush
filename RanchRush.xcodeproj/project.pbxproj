@@ -13,6 +13,7 @@
 		FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */; };
 		FF21041729E594EA00450F05 /* Cow.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041629E594EA00450F05 /* Cow.atlas */; };
 		FF21041929E5989600450F05 /* Horse.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041829E5989600450F05 /* Horse.atlas */; };
+		FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041A29E5992F00450F05 /* Sheep.atlas */; };
 		FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650029DAFF6E008E711C /* AppDelegate.swift */; };
 		FF30650729DAFF6E008E711C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650629DAFF6E008E711C /* GameScene.swift */; };
 		FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650829DAFF6E008E711C /* GameViewController.swift */; };
@@ -31,6 +32,7 @@
 		FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtension.swift; sourceTree = "<group>"; };
 		FF21041629E594EA00450F05 /* Cow.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Cow.atlas; sourceTree = "<group>"; };
 		FF21041829E5989600450F05 /* Horse.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Horse.atlas; sourceTree = "<group>"; };
+		FF21041A29E5992F00450F05 /* Sheep.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sheep.atlas; sourceTree = "<group>"; };
 		FF3064FD29DAFF6E008E711C /* RanchRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF30650029DAFF6E008E711C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF30650629DAFF6E008E711C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		FF30651A29DB0306008E711C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF21041A29E5992F00450F05 /* Sheep.atlas */,
 				FF21041829E5989600450F05 /* Horse.atlas */,
 				FF21041629E594EA00450F05 /* Cow.atlas */,
 				FF30650D29DAFF6F008E711C /* Assets.xcassets */,
@@ -217,6 +220,7 @@
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
 				FF21041729E594EA00450F05 /* Cow.atlas in Resources */,
 				FF21041929E5989600450F05 /* Horse.atlas in Resources */,
+				FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */,
 				FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */,
 				FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */,
 			);
