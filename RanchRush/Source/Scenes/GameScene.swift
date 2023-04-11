@@ -39,7 +39,7 @@ class GameScene: SKScene {
         return scoreCounter
     }()
     
-    let obstacleTypes: [ObstacleType] = [.chicken, .cow]
+    let obstacleTypes: [ObstacleType] = [.chicken, .cow, .horse]
     var numberObstacles = 5
     var sceneSpeed: CGFloat = 3
 
