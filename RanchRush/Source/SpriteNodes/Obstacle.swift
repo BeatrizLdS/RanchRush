@@ -13,8 +13,9 @@ enum ObstacleState: String {
 }
 
 enum ObstacleType: String {
-    case female = "Female"
-    case male = "Male"
+    case female = "FemaleZombie"
+    case male = "MaleZombie"
+    case chicken = "Chicken"
 }
 
 class Obstacle: SKSpriteNode {
@@ -37,7 +38,7 @@ class Obstacle: SKSpriteNode {
     }
     
     func setFrames () {
-        let newFrames = getFrames(with: state.rawValue, atlasName: "\(obstacleType.rawValue)Zombie")
+        let newFrames = getFrames(with: state.rawValue, atlasName: "\(obstacleType.rawValue)")
         if newFrames.isEmpty == false {
             frames = newFrames
             texture = frames[0]
@@ -78,6 +79,25 @@ class Obstacle: SKSpriteNode {
                                       restore: false)
         action.timingMode = .linear
         run(action)
+    }
+    
+    func generateSize(width: CGFloat, height: CGFloat) {
+        switch obstacleType {
+        case .female:
+            yScale = 0.2
+            xScale = 0.1
+        case .male:
+            yScale = 0.2
+            xScale = 0.1
+        case .chicken:
+            xScale = 0.05
+            yScale = 0.1
+            
+        }
+        calculateSize(
+            windowWidth: width,
+            windowHeight: height
+        )
     }
     
 }

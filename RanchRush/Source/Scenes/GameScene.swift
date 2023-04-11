@@ -39,7 +39,7 @@ class GameScene: SKScene {
         return scoreCounter
     }()
     
-    let obstacleTypes: [ObstacleType] = [.female, .male]
+    let obstacleTypes: [ObstacleType] = [.chicken, .female, .male]
     var numberObstacles = 5
     var sceneSpeed: CGFloat = 3
 
@@ -181,19 +181,23 @@ class GameScene: SKScene {
         
         for _ in 0...(numberObstacles-1) {
             obstacleTypeIndex = Int.random(in: 0..<obstacleTypes.count)
-            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacleTypeIndex],
-                                    speed: sceneSpeed)
-//            obstacle.anchorPoint = CGPoint.zero
-            obstacle.position = CGPoint(x: currentXPosition,
-                                        y: (ground?.frame.maxY)! * 1.49)
-            obstacle.xScale = 0.1
-            obstacle.yScale = 0.2
+            let obstacle = Obstacle(
+                obstacleType: obstacleTypes[obstacleTypeIndex],
+                speed: sceneSpeed
+            )
+            obstacle.position = CGPoint(
+                x: currentXPosition,
+                y: (ground?.frame.maxY)! * 1.2
+            )
             obstacle.zPosition = 2
-            obstacle.calculateSize(windowWidth: frame.width,
-                                   windowHeight: frame.height)
+            obstacle.generateSize(
+                width: frame.width,
+                height: frame.height
+            )
             obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
                 width: obstacle.size.width * 0.5,
-                height: obstacle.size.height * 0.5))
+                height: obstacle.size.height * 0.5
+            ))
             obstacle.physicsBody?.affectedByGravity = false
             obstacle.physicsBody?.categoryBitMask = CollisionType.obstacle.rawValue
             obstacle.physicsBody?.isDynamic = false
