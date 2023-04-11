@@ -8,10 +8,8 @@
 import SpriteKit
 
 enum PlayerStates: String {
-    case run = "Run"
     case idle = "Idle"
     case jump = "Jump"
-    case dead = "Dead"
 }
 
 class Player: SKSpriteNode {
@@ -19,7 +17,7 @@ class Player: SKSpriteNode {
     private var state: PlayerStates = .idle
     
     func setFrames() {
-        let atlasName = "Player\(state.rawValue)"
+        let atlasName = "Motobiker\(state.rawValue)"
         let newFrames = getFrames(with: state.rawValue, atlasName: atlasName)
         if  newFrames.isEmpty == false {
             self.frames = newFrames
@@ -32,7 +30,7 @@ class Player: SKSpriteNode {
     }
     
     func dead() {
-        runOneTime(state: .dead)
+//        runOneTime(state: .dead)
     }
     
     func loopForever(state: PlayerStates) {
