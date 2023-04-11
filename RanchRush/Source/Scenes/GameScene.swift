@@ -51,7 +51,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint.zero
         backgroundColor = UIColor(named: "background")!
-        addSwipeGestureRecognizer()
         player.loopForever(state: .run)
         setScene()
         self.physicsWorld.contactDelegate = self
@@ -81,27 +80,6 @@ class GameScene: SKScene {
 //            if obstaclesSpeed < 10 {
 //                obstaclesSpeed += 1
 //            }
-        }
-    }
-
-
-    func addSwipeGestureRecognizer() {
-        let swipeDirections: [UISwipeGestureRecognizer.Direction] = [.up, .down]
-        for direction in swipeDirections {
-            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
-            swipeRecognizer.direction = direction
-            self.view?.addGestureRecognizer(swipeRecognizer)
-        }
-    }
-    
-    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
-        switch sender.direction{
-        case .up:
-            player.jump()
-        case .down:
-            player.dead()
-        default:
-            print("Sem gesture!")
         }
     }
     
