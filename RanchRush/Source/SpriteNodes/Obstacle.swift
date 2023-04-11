@@ -18,19 +18,17 @@ enum ObstacleType: String {
 }
 
 class Obstacle: SKSpriteNode {
-    private var obstacleType: ObstacleType
-    private lazy var frames: [SKTexture] = []
     private var state: ObstacleState = .idle
+    private var frames: [SKTexture] = []
+    private var obstacleType: ObstacleType
     private var velocity: CGFloat
 
     init(obstacleType: ObstacleType, speed: CGFloat) {
         self.obstacleType = obstacleType
         self.velocity = speed
         super.init(texture: SKTexture(imageNamed: "zombie"), color: .white, size: .zero)
-        setFrames()
         configureMovement()
-        
-        
+        loopForever(newState: .idle)
         name = "obstacle"
     }
     
@@ -60,4 +58,26 @@ class Obstacle: SKSpriteNode {
         )
         run(movement)
     }
+    
+    func loopForever(newState: ObstacleState) {
+        self.state = newState
+        setFrames()
+        let action = SKAction.animate(with: frames,
+                                      timePerFrame: 1 / TimeInterval(frames.count),
+                                      resize: false,
+                                      restore: true)
+        run(SKAction.repeatForever(action))
+    }
+    
+    func runOneTime(newState: ObstacleState) {
+        self.state = newState
+        setFrames()
+        let action = SKAction.animate(with: frames,
+                                      timePerFrame: 1/TimeInterval(frames.count),
+                                      resize: false,
+                                      restore: false)
+        action.timingMode = .linear
+        run(action)
+    }
+    
 }
