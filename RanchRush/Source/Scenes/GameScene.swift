@@ -17,6 +17,7 @@ class GameScene: SKScene {
     }
 
     var isScoreCounting: Bool = true
+    var canJump: Bool = true
 
     var ground = SKSpriteNode()
     var sky = SKSpriteNode()
@@ -44,8 +45,11 @@ class GameScene: SKScene {
     var sceneSpeed: CGFloat = 4
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        player.jump()
-        player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 110), duration: 0.2))
+        if self.canJump == true {
+            player.jump()
+            player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 110), duration: 0.2))
+            self.canJump = false
+        }
     }
     
     override func didMove(to view: SKView) {
@@ -132,7 +136,8 @@ class GameScene: SKScene {
             ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
                             width: ground.size.width,
                             height: ground.size.height * 2.0))
-                        ground.physicsBody?.isDynamic = false
+            ground.physicsBody?.isDynamic = false
+            ground.physicsBody?.categoryBitMask = CollisionType.ground.rawValue
             self.addChild(ground)
         }
     }
@@ -232,14 +237,13 @@ extension GameScene: SetSceneProtocol {
             width: player.size.width * 0.3,
             height: player.size.height * 0.3))
         player.physicsBody?.categoryBitMask = CollisionType.player.rawValue
-        player.physicsBody?.contactTestBitMask = CollisionType.obstacle.rawValue
+        player.physicsBody?.contactTestBitMask = CollisionType.obstacle.rawValue | CollisionType.ground.rawValue
     }
-    
 }
 
 extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        if let nodeB = contact.bodyB.node {
+        if let nodeB = contact.bodyB.node, let nodeA = contact.bodyA.node {
             if nodeB.name == "obstacle" {
 
                 //parando o contador
@@ -257,6 +261,10 @@ extension GameScene: SKPhysicsContactDelegate {
                     UserDefaults.standard.set(self.scoreValue, forKey: "record")
 
                 }
+            }
+            if nodeA.name == "image-background" {
+                self.canJump = true
+                
             }
         }
     }
