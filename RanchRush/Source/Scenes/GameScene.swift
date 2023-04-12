@@ -17,16 +17,17 @@ class GameScene: SKScene {
     }
 
     var isScoreCounting: Bool = true
+    var canJump: Bool = true
 
     var ground = SKSpriteNode()
     var sky = SKSpriteNode()
     let player: Player = {
         let player = Player()
         player.setFrames()
-        player.anchorPoint = CGPoint(x: 0.2, y: 0.2)
+        player.anchorPoint = CGPoint(x: 0.515, y: 0.15)
         player.zPosition = 2
-        player.xScale = 0.3
-        player.yScale = 0.3
+        player.xScale = 0.5
+        player.yScale = 0.5
         return player
     } ()
 
@@ -39,21 +40,23 @@ class GameScene: SKScene {
         scoreCounter.fontName = "Small-Pixel"
         return scoreCounter
     }()
-    
-    let obstacleTypes: [ObstacleType] = [.female, .male]
+
+    let obstacleTypes: [ObstacleType] = [.hay, .chicken, .cow, .horse, .sheep]
     var numberObstacles = 5
-    var sceneSpeed: CGFloat = 3
+    var sceneSpeed: CGFloat = 4
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        player.jump()
-        player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 43), duration: 0.2))
+        if self.canJump == true {
+            player.jump()
+            player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 110), duration: 0.2))
+            self.canJump = false
+        }
     }
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint.zero
         backgroundColor = UIColor(named: "background")!
-        addSwipeGestureRecognizer()
-        player.loopForever(state: .run)
+        player.loopForever(state: .idle)
         setScene()
         self.physicsWorld.contactDelegate = self
     }
@@ -84,27 +87,6 @@ class GameScene: SKScene {
 //            }
         }
     }
-
-
-    func addSwipeGestureRecognizer() {
-        let swipeDirections: [UISwipeGestureRecognizer.Direction] = [.up, .down]
-        for direction in swipeDirections {
-            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
-            swipeRecognizer.direction = direction
-            self.view?.addGestureRecognizer(swipeRecognizer)
-        }
-    }
-    
-    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
-        switch sender.direction{
-        case .up:
-            player.jump()
-        case .down:
-            player.dead()
-        default:
-            print("Sem gesture!")
-        }
-    }
     
     func createObstacles() {
         let obstacleOffsetx: CGFloat = 120
@@ -132,8 +114,9 @@ class GameScene: SKScene {
                                       y: frame.minY - (ground.frame.height/3))
             ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
                             width: ground.size.width,
-                            height: ground.size.height * 1.8))
-                        ground.physicsBody?.isDynamic = false
+                            height: ground.size.height * 2.0))
+            ground.physicsBody?.isDynamic = false
+            ground.physicsBody?.categoryBitMask = CollisionType.ground.rawValue
             self.addChild(ground)
         }
     }
@@ -182,19 +165,22 @@ class GameScene: SKScene {
         
         for _ in 0...(numberObstacles-1) {
             obstacleTypeIndex = Int.random(in: 0..<obstacleTypes.count)
-            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacleTypeIndex],
-                                    speed: sceneSpeed)
-//            obstacle.anchorPoint = CGPoint.zero
-            obstacle.position = CGPoint(x: currentXPosition,
-                                        y: (ground?.frame.maxY)! * 1.49)
-            obstacle.xScale = 0.1
-            obstacle.yScale = 0.2
+            let obstacle = Obstacle(
+                obstacleType: obstacleTypes[obstacleTypeIndex],
+                speed: sceneSpeed
+            )
             obstacle.zPosition = 2
-            obstacle.calculateSize(windowWidth: frame.width,
-                                   windowHeight: frame.height)
+            obstacle.generatePosition(
+                x: currentXPosition,
+                y: (ground?.frame.maxY)!
+            )
+            obstacle.generateSize(
+                width: frame.width,
+                height: frame.height
+            )
             obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
-                width: obstacle.size.width * 0.5,
-                height: obstacle.size.height * 0.5))
+                width: obstacle.size.width * 0.2,
+                height: obstacle.size.height * 0.2))
             obstacle.physicsBody?.affectedByGravity = false
             obstacle.physicsBody?.categoryBitMask = CollisionType.obstacle.rawValue
             obstacle.physicsBody?.isDynamic = false
@@ -233,14 +219,13 @@ extension GameScene: SetSceneProtocol {
             width: player.size.width * 0.3,
             height: player.size.height * 0.3))
         player.physicsBody?.categoryBitMask = CollisionType.player.rawValue
-        player.physicsBody?.contactTestBitMask = CollisionType.obstacle.rawValue
+        player.physicsBody?.contactTestBitMask = CollisionType.obstacle.rawValue | CollisionType.ground.rawValue
     }
-    
 }
 
 extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        if let nodeB = contact.bodyB.node {
+        if let nodeB = contact.bodyB.node, let nodeA = contact.bodyA.node {
             if nodeB.name == "obstacle" {
 
                 //parando o contador
@@ -258,6 +243,10 @@ extension GameScene: SKPhysicsContactDelegate {
                     UserDefaults.standard.set(self.scoreValue, forKey: "record")
 
                 }
+            }
+            if nodeA.name == "image-background" {
+                self.canJump = true
+                
             }
         }
     }
