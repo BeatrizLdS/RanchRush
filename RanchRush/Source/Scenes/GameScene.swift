@@ -244,7 +244,7 @@ extension GameScene: SKPhysicsContactDelegate {
 
                 }
             }
-            if nodeA.name == "image-background" {
+            if nodeA.name == "screengame-ground" {
                 self.canJump = true
                 
             }
