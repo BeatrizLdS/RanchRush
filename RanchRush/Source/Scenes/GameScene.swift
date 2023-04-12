@@ -39,8 +39,8 @@ class GameScene: SKScene {
         scoreCounter.zPosition = 3
         return scoreCounter
     }()
-    
-    let obstacleTypes: [ObstacleType] = [.female, .male]
+
+    let obstacleTypes: [ObstacleType] = [.hay, .chicken, .cow, .horse, .sheep]
     var numberObstacles = 5
     var sceneSpeed: CGFloat = 4
 
@@ -55,7 +55,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint.zero
         backgroundColor = UIColor(named: "background")!
-        addSwipeGestureRecognizer()
         player.loopForever(state: .idle)
         setScene()
         self.physicsWorld.contactDelegate = self
@@ -85,27 +84,6 @@ class GameScene: SKScene {
 //            if obstaclesSpeed < 10 {
 //                obstaclesSpeed += 1
 //            }
-        }
-    }
-
-
-    func addSwipeGestureRecognizer() {
-        let swipeDirections: [UISwipeGestureRecognizer.Direction] = [.up, .down]
-        for direction in swipeDirections {
-            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
-            swipeRecognizer.direction = direction
-            self.view?.addGestureRecognizer(swipeRecognizer)
-        }
-    }
-    
-    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
-        switch sender.direction{
-        case .up:
-            player.jump()
-        case .down:
-            player.dead()
-        default:
-            print("Sem gesture!")
         }
     }
     
@@ -186,16 +164,19 @@ class GameScene: SKScene {
         
         for _ in 0...(numberObstacles-1) {
             obstacleTypeIndex = Int.random(in: 0..<obstacleTypes.count)
-            let obstacle = Obstacle(obstacleType: obstacleTypes[obstacleTypeIndex],
-                                    speed: sceneSpeed)
-//            obstacle.anchorPoint = CGPoint.zero
-            obstacle.position = CGPoint(x: currentXPosition,
-                                        y: (ground?.frame.maxY)! * 1.49)
-            obstacle.xScale = 0.1
-            obstacle.yScale = 0.2
+            let obstacle = Obstacle(
+                obstacleType: obstacleTypes[obstacleTypeIndex],
+                speed: sceneSpeed
+            )
             obstacle.zPosition = 2
-            obstacle.calculateSize(windowWidth: frame.width,
-                                   windowHeight: frame.height)
+            obstacle.generatePosition(
+                x: currentXPosition,
+                y: (ground?.frame.maxY)!
+            )
+            obstacle.generateSize(
+                width: frame.width,
+                height: frame.height
+            )
             obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
                 width: obstacle.size.width * 0.2,
                 height: obstacle.size.height * 0.2))

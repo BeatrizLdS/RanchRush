@@ -7,16 +7,6 @@
 
 import SpriteKit
 
-enum ObstacleState: String {
-    case idle = "Idle"
-    case attack = "Attack"
-}
-
-enum ObstacleType: String {
-    case female = "Female"
-    case male = "Male"
-}
-
 class Obstacle: SKSpriteNode {
     private var state: ObstacleState = .idle
     private var frames: [SKTexture] = []
@@ -37,7 +27,7 @@ class Obstacle: SKSpriteNode {
     }
     
     func setFrames () {
-        let newFrames = getFrames(with: state.rawValue, atlasName: "\(obstacleType.rawValue)Zombie")
+        let newFrames = getFrames(with: state.rawValue, atlasName: "\(obstacleType.rawValue)")
         if newFrames.isEmpty == false {
             frames = newFrames
             texture = frames[0]
@@ -78,6 +68,60 @@ class Obstacle: SKSpriteNode {
                                       restore: false)
         action.timingMode = .linear
         run(action)
+    }
+    
+    func generateSize(width: CGFloat, height: CGFloat) {
+        switch obstacleType {
+        case .female:
+            yScale = 0.2
+            xScale = 0.1
+        case .male:
+            yScale = 0.2
+            xScale = 0.1
+        case .chicken:
+            xScale = 0.05
+            yScale = 0.1
+        case .cow:
+            xScale = 0.08
+            yScale = 0.2
+        case .horse:
+            xScale = 0.1
+            yScale = 0.25
+        case .sheep:
+            xScale = 0.1
+            yScale = 0.2
+        case .hay:
+            xScale = 0.08
+            yScale = 0.2
+        }
+        calculateSize(
+            windowWidth: width,
+            windowHeight: height
+        )
+    }
+    
+    func generatePosition(x: CGFloat, y: CGFloat) {
+        var multiplierY: CGFloat = 0
+        switch obstacleType {
+        case .female:
+            multiplierY = 1.49
+        case .male:
+            multiplierY = 1.49
+        case .chicken:
+            multiplierY = 1.2
+        case .cow:
+            multiplierY = 1.5
+        case .horse:
+            multiplierY = 1.6
+        case .sheep:
+            multiplierY = 1.35
+        case .hay:
+            multiplierY = 1.5
+        }
+        position = CGPoint(
+            x: x,
+            y: y * multiplierY
+        )
     }
     
 }

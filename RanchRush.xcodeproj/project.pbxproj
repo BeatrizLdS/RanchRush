@@ -12,7 +12,13 @@
 		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
 		FF0EB39429E6C65E002065A9 /* ScenarioObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0EB39329E6C65E002065A9 /* ScenarioObjects.swift */; };
 		FF0EB39629E6C702002065A9 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0EB39529E6C702002065A9 /* Scenario.swift */; };
+		FF0EB39929E6D9A2002065A9 /* MotobikerIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF0EB39829E6D9A2002065A9 /* MotobikerIdle.atlas */; };
 		FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */; };
+		FF21041729E594EA00450F05 /* Cow.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041629E594EA00450F05 /* Cow.atlas */; };
+		FF21041929E5989600450F05 /* Horse.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041829E5989600450F05 /* Horse.atlas */; };
+		FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041A29E5992F00450F05 /* Sheep.atlas */; };
+		FF21041D29E59B8B00450F05 /* Hay.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041C29E59B8B00450F05 /* Hay.atlas */; };
+		FF21041F29E59C4900450F05 /* ObstaclesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21041E29E59C4900450F05 /* ObstaclesTypes.swift */; };
 		FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650029DAFF6E008E711C /* AppDelegate.swift */; };
 		FF30650729DAFF6E008E711C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650629DAFF6E008E711C /* GameScene.swift */; };
 		FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650829DAFF6E008E711C /* GameViewController.swift */; };
@@ -30,7 +36,13 @@
 		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		FF0EB39329E6C65E002065A9 /* ScenarioObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjects.swift; sourceTree = "<group>"; };
 		FF0EB39529E6C702002065A9 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
+		FF0EB39829E6D9A2002065A9 /* MotobikerIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = MotobikerIdle.atlas; path = "../../../Assets-jogo/V1/MotobikerIdle.atlas/MotobikerIdle.atlas"; sourceTree = "<group>"; };
 		FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtension.swift; sourceTree = "<group>"; };
+		FF21041629E594EA00450F05 /* Cow.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Cow.atlas; sourceTree = "<group>"; };
+		FF21041829E5989600450F05 /* Horse.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Horse.atlas; sourceTree = "<group>"; };
+		FF21041A29E5992F00450F05 /* Sheep.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sheep.atlas; sourceTree = "<group>"; };
+		FF21041C29E59B8B00450F05 /* Hay.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hay.atlas; sourceTree = "<group>"; };
+		FF21041E29E59C4900450F05 /* ObstaclesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstaclesTypes.swift; sourceTree = "<group>"; };
 		FF3064FD29DAFF6E008E711C /* RanchRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF30650029DAFF6E008E711C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF30650629DAFF6E008E711C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -59,6 +71,7 @@
 			children = (
 				368A459029E43D5E0007BF5B /* Collisions.swift */,
 				FF0EB39329E6C65E002065A9 /* ScenarioObjects.swift */,
+				FF21041E29E59C4900450F05 /* ObstaclesTypes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +128,11 @@
 		FF30651A29DB0306008E711C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF0EB39829E6D9A2002065A9 /* MotobikerIdle.atlas */,
+				FF21041C29E59B8B00450F05 /* Hay.atlas */,
+				FF21041A29E5992F00450F05 /* Sheep.atlas */,
+				FF21041829E5989600450F05 /* Horse.atlas */,
+				FF21041629E594EA00450F05 /* Cow.atlas */,
 				FF30650D29DAFF6F008E711C /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -214,9 +232,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF0EB39929E6D9A2002065A9 /* MotobikerIdle.atlas in Resources */,
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
+				FF21041729E594EA00450F05 /* Cow.atlas in Resources */,
+				FF21041929E5989600450F05 /* Horse.atlas in Resources */,
+				FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */,
 				FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */,
 				FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */,
+				FF21041D29E59B8B00450F05 /* Hay.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +262,7 @@
 				FF0EB39629E6C702002065A9 /* Scenario.swift in Sources */,
 				FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */,
 				FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */,
+				FF21041F29E59C4900450F05 /* ObstaclesTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
