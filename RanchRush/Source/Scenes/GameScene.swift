@@ -89,7 +89,7 @@ class GameScene: SKScene {
     }
     
     func createObstacles() {
-        let obstacleOffsetx: CGFloat = 120
+        let obstacleOffsetx: CGFloat = player.frame.width
         
        let obstacles = generateRandomObstacles(
             spaceBetween: obstacleOffsetx,
