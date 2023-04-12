@@ -10,6 +10,7 @@
 		368A459129E43D5E0007BF5B /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459029E43D5E0007BF5B /* Collisions.swift */; };
 		368A459329E447E30007BF5B /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459229E447E30007BF5B /* TitleScene.swift */; };
 		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
+		FF0EB39929E6D9A2002065A9 /* MotobikerIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF0EB39829E6D9A2002065A9 /* MotobikerIdle.atlas */; };
 		FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */; };
 		FF21041729E594EA00450F05 /* Cow.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041629E594EA00450F05 /* Cow.atlas */; };
 		FF21041929E5989600450F05 /* Horse.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041829E5989600450F05 /* Horse.atlas */; };
@@ -31,6 +32,7 @@
 		368A459029E43D5E0007BF5B /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		368A459229E447E30007BF5B /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		FF0EB39829E6D9A2002065A9 /* MotobikerIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = MotobikerIdle.atlas; path = "../../../Assets-jogo/V1/MotobikerIdle.atlas/MotobikerIdle.atlas"; sourceTree = "<group>"; };
 		FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtension.swift; sourceTree = "<group>"; };
 		FF21041629E594EA00450F05 /* Cow.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Cow.atlas; sourceTree = "<group>"; };
 		FF21041829E5989600450F05 /* Horse.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Horse.atlas; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		FF30651A29DB0306008E711C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF0EB39829E6D9A2002065A9 /* MotobikerIdle.atlas */,
 				FF21041C29E59B8B00450F05 /* Hay.atlas */,
 				FF21041A29E5992F00450F05 /* Sheep.atlas */,
 				FF21041829E5989600450F05 /* Horse.atlas */,
@@ -223,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF0EB39929E6D9A2002065A9 /* MotobikerIdle.atlas in Resources */,
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
 				FF21041729E594EA00450F05 /* Cow.atlas in Resources */,
 				FF21041929E5989600450F05 /* Horse.atlas in Resources */,
