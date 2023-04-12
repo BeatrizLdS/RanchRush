@@ -108,15 +108,15 @@ class Obstacle: SKSpriteNode {
         case .male:
             multiplierY = 1.49
         case .chicken:
-            multiplierY = 1.2
+            multiplierY = 1.07
         case .cow:
-            multiplierY = 1.5
+            multiplierY = 1.22
         case .horse:
-            multiplierY = 1.6
+            multiplierY = 1.27
         case .sheep:
-            multiplierY = 1.35
+            multiplierY = 1.08
         case .hay:
-            multiplierY = 1.5
+            multiplierY = 1.26
         }
         position = CGPoint(
             x: x,
