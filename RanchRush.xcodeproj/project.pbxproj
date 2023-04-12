@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364F5A3A29E6E7A20037CD6A /* MotobikerIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */; };
 		368A459129E43D5E0007BF5B /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459029E43D5E0007BF5B /* Collisions.swift */; };
 		368A459329E447E30007BF5B /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459229E447E30007BF5B /* TitleScene.swift */; };
 		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MotobikerIdle.atlas; sourceTree = "<group>"; };
 		368A459029E43D5E0007BF5B /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		368A459229E447E30007BF5B /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				49259EB729E58C0F0036131F /* small_pixel.ttf */,
+				364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */,
 				FF21041C29E59B8B00450F05 /* Hay.atlas */,
 				FF21041A29E5992F00450F05 /* Sheep.atlas */,
 				FF21041829E5989600450F05 /* Horse.atlas */,
@@ -228,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364F5A3A29E6E7A20037CD6A /* MotobikerIdle.atlas in Resources */,
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
 				49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */,
 				FF21041729E594EA00450F05 /* Cow.atlas in Resources */,
