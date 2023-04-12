@@ -12,7 +12,7 @@ class GameScene: SKScene {
 
     var scoreValue = 0{
         didSet{
-            scoreCounter.text = "Points: \(scoreValue)"
+            scoreCounter.text = "SCORE: \(scoreValue)"
         }
     }
 
@@ -34,9 +34,10 @@ class GameScene: SKScene {
     var scoreCounter: SKLabelNode = {
         let scoreCounter = SKLabelNode()
         scoreCounter.scene?.anchorPoint = CGPoint(x: 1, y: 1)
-        scoreCounter.fontSize = 30
-        scoreCounter.fontColor = .black
+        scoreCounter.fontSize = 20
+        scoreCounter.fontColor = .systemYellow
         scoreCounter.zPosition = 3
+        scoreCounter.fontName = "Small-Pixel"
         return scoreCounter
     }()
 
@@ -102,8 +103,8 @@ class GameScene: SKScene {
     
     func createGround() {
         for i in 0...3{
-            let ground = SKSpriteNode(imageNamed: "image-background")
-            ground.name = "image-background"
+            let ground = SKSpriteNode(imageNamed: "screengame-ground")
+            ground.name = "screengame-ground"
             ground.zPosition = 2
             ground.xScale = 1
             ground.yScale = 0.3
@@ -122,8 +123,8 @@ class GameScene: SKScene {
     
     func createSky(){
         for i in 0...3{
-            let sky = SKSpriteNode(imageNamed: "image-sky")
-            sky.name = "image-sky"
+            let sky = SKSpriteNode(imageNamed: "screengame-sky")
+            sky.name = "screengame-sky"
             sky.xScale = 1
             sky.yScale = 1
             sky.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
@@ -136,7 +137,7 @@ class GameScene: SKScene {
     }
     
     func moveGround() {
-        enumerateChildNodes(withName: "image-background") { node, error in
+        enumerateChildNodes(withName: "screengame-ground") { node, error in
             node.position.x -= self.sceneSpeed
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
@@ -146,7 +147,7 @@ class GameScene: SKScene {
     }
     
     func moveSky() {
-        enumerateChildNodes(withName: "image-sky") { node, error in
+        enumerateChildNodes(withName: "screengame-sky") { node, error in
             node.position.x -= self.sceneSpeed/3
             if node.position.x < -((self.scene?.size.width)!) {
                 node.position.x += (self.scene?.size.width)! * 3
@@ -160,7 +161,7 @@ class GameScene: SKScene {
         let extraDistance = Array(stride(from: 50, to: 150, by: 10))
         var obstacles: [Obstacle] = []
         var currentXPosition = frame.maxX
-        let ground = childNode(withName: "image-background")
+        let ground = childNode(withName: "screengame-ground")
         
         for _ in 0...(numberObstacles-1) {
             obstacleTypeIndex = Int.random(in: 0..<obstacleTypes.count)
@@ -204,7 +205,7 @@ extension GameScene: SetSceneProtocol {
     
     func setPositions() {
         player.calculateSize(windowWidth: frame.height, windowHeight: frame.height)
-        let ground = childNode(withName: "image-background")
+        let ground = childNode(withName: "screengame-ground")
         player.position = CGPoint(x: frame.minX + 100,
                                   y: (ground?.frame.maxY)! + 30)
 
@@ -243,7 +244,7 @@ extension GameScene: SKPhysicsContactDelegate {
 
                 }
             }
-            if nodeA.name == "image-background" {
+            if nodeA.name == "screengame-ground" {
                 self.canJump = true
                 
             }

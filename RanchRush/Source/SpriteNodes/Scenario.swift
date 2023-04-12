@@ -21,5 +21,5 @@ class Scenario: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func generate
+//    func generate
 }
