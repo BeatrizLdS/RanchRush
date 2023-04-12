@@ -10,6 +10,7 @@
 		368A459129E43D5E0007BF5B /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459029E43D5E0007BF5B /* Collisions.swift */; };
 		368A459329E447E30007BF5B /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459229E447E30007BF5B /* TitleScene.swift */; };
 		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
+		49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49259EB729E58C0F0036131F /* small_pixel.ttf */; };
 		FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */; };
 		FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650029DAFF6E008E711C /* AppDelegate.swift */; };
 		FF30650729DAFF6E008E711C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650629DAFF6E008E711C /* GameScene.swift */; };
@@ -26,6 +27,8 @@
 		368A459029E43D5E0007BF5B /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		368A459229E447E30007BF5B /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		49259EB729E58C0F0036131F /* small_pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = small_pixel.ttf; sourceTree = "<group>"; };
+		49259EB929E58C610036131F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtension.swift; sourceTree = "<group>"; };
 		FF3064FD29DAFF6E008E711C /* RanchRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF30650029DAFF6E008E711C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		FF3064FF29DAFF6E008E711C /* RanchRush */ = {
 			isa = PBXGroup;
 			children = (
+				49259EB929E58C610036131F /* Info.plist */,
 				FF30651A29DB0306008E711C /* Resource */,
 				FF30651829DB02F7008E711C /* Source */,
 				FF30651729DB02ED008E711C /* Application */,
@@ -110,6 +114,7 @@
 		FF30651A29DB0306008E711C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				49259EB729E58C0F0036131F /* small_pixel.ttf */,
 				FF30650D29DAFF6F008E711C /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -209,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
+				49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */,
 				FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */,
 				FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */,
 			);
@@ -379,6 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3S22856DS9;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -407,6 +414,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3S22856DS9;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

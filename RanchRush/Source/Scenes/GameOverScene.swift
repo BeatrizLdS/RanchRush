@@ -9,15 +9,28 @@ import Foundation
 import SpriteKit
 
 class GameOverScene: SKScene {
+    var backgroundFinal = SKSpriteNode(imageNamed: "screen-final")
 
     var finalScore: SKLabelNode = {
         let finalScore = SKLabelNode()
         finalScore.text = "PLACEHOLDER"
-        finalScore.fontColor = .systemRed
+        finalScore.fontColor = .white
         finalScore.fontSize = 50
-        finalScore.scene?.anchorPoint = CGPoint(x: 1, y: 1)
+        finalScore.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         finalScore.zPosition = 3
+        finalScore.fontName = "Small-Pixel"
         return finalScore
+    }()
+
+    var labelFinal: SKLabelNode = {
+        let labelFinal = SKLabelNode()
+        labelFinal.text = ""
+        labelFinal.fontColor = .white
+        labelFinal.fontSize = 10
+        labelFinal.scene?.anchorPoint = CGPoint(x: 1, y: 1)
+        labelFinal.zPosition = 3
+        labelFinal.fontName = "Small-Pixel"
+        return labelFinal
     }()
 
     override func didMove(to view: SKView) {
@@ -34,12 +47,15 @@ class GameOverScene: SKScene {
 extension GameOverScene: SetSceneProtocol {
     func addChilds() {
         addChild(finalScore)
+        addChild(labelFinal)
+        addChild(backgroundFinal)
     }
 
     func setPositions() {
-        finalScore.position = CGPoint(
-            x: self.view!.frame.midX,
-            y: self.view!.frame.midY)
+        finalScore.position = CGPoint(x: self.view!.frame.midX, y: self.view!.frame.midY * 1.6)
+        labelFinal.position = CGPoint(x: self.view!.frame.midX, y: self.view!.frame.midY * 1.1)
+        backgroundFinal.position = CGPoint(x: frame.midX, y: frame.midY)
+        backgroundFinal.zPosition = -1
     }
 
     func setPhysics() {
