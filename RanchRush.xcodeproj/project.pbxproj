@@ -11,6 +11,7 @@
 		368A459129E43D5E0007BF5B /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459029E43D5E0007BF5B /* Collisions.swift */; };
 		368A459329E447E30007BF5B /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459229E447E30007BF5B /* TitleScene.swift */; };
 		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
+		49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49259EB729E58C0F0036131F /* small_pixel.ttf */; };
 		FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */; };
 		FF21041729E594EA00450F05 /* Cow.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041629E594EA00450F05 /* Cow.atlas */; };
 		FF21041929E5989600450F05 /* Horse.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041829E5989600450F05 /* Horse.atlas */; };
@@ -33,6 +34,8 @@
 		368A459029E43D5E0007BF5B /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		368A459229E447E30007BF5B /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		49259EB729E58C0F0036131F /* small_pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = small_pixel.ttf; sourceTree = "<group>"; };
+		49259EB929E58C610036131F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtension.swift; sourceTree = "<group>"; };
 		FF21041629E594EA00450F05 /* Cow.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Cow.atlas; sourceTree = "<group>"; };
 		FF21041829E5989600450F05 /* Horse.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Horse.atlas; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		FF3064FF29DAFF6E008E711C /* RanchRush */ = {
 			isa = PBXGroup;
 			children = (
+				49259EB929E58C610036131F /* Info.plist */,
 				FF30651A29DB0306008E711C /* Resource */,
 				FF30651829DB02F7008E711C /* Source */,
 				FF30651729DB02ED008E711C /* Application */,
@@ -123,6 +127,7 @@
 		FF30651A29DB0306008E711C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				49259EB729E58C0F0036131F /* small_pixel.ttf */,
 				364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */,
 				FF21041C29E59B8B00450F05 /* Hay.atlas */,
 				FF21041A29E5992F00450F05 /* Sheep.atlas */,
@@ -228,6 +233,7 @@
 			files = (
 				364F5A3A29E6E7A20037CD6A /* MotobikerIdle.atlas in Resources */,
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
+				49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */,
 				FF21041729E594EA00450F05 /* Cow.atlas in Resources */,
 				FF21041929E5989600450F05 /* Horse.atlas in Resources */,
 				FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */,
@@ -403,6 +409,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3S22856DS9;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -431,6 +438,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3S22856DS9;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
