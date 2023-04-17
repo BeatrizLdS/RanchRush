@@ -67,24 +67,28 @@ class GameScene: SKScene {
         if isScoreCounting == true {
             scoreValue += 1
         }
-
+        
+        let activateScenario = children.compactMap{ $0 as? Scenario }
         let activeObstacles = children.compactMap{ $0 as? Obstacle }
-        for child in activeObstacles {
+        removeOffScreen(list: activateScenario)
+        removeOffScreen(list: activeObstacles)
+        
+        let startingScenario = activateScenario.compactMap{ $0.scenarioType == .starting }
+        if activeObstacles.isEmpty && startingScenario.isEmpty {
+            createObstacles()
+            if numberObstacles < 30 {
+                numberObstacles += 2
+            }
+        }
+    }
+    
+    func removeOffScreen(list: [SKNode]) {
+        for child in list {
             if child.frame.maxX < 0 {
                 if !frame.intersects(child.frame) {
                     child.removeFromParent()
                 }
             }
-        }
-        
-        if activeObstacles.isEmpty {
-            createObstacles()
-            if numberObstacles < 30 {
-                numberObstacles += 2
-            }
-//            if obstaclesSpeed < 10 {
-//                obstaclesSpeed += 1
-//            }
         }
     }
     
@@ -129,10 +133,37 @@ class GameScene: SKScene {
             sky.yScale = 1
             sky.calculateSize(windowWidth: frame.width, windowHeight: frame.height)
             sky.anchorPoint = CGPoint.zero
-            sky.zPosition = 1
+            sky.zPosition = -1
             sky.position = CGPoint(x: CGFloat(i) * sky.size.width,
                                    y: frame.minY)
             self.addChild(sky)
+        }
+    }
+    
+    func createInitialScenario() {
+        let barn = Scenario(objectType: .barn, scenarioType: .starting, speed: sceneSpeed)
+        let rightFance = Scenario(objectType: .fance, scenarioType: .starting, side: .right, speed: sceneSpeed)
+        let leftFance = Scenario(objectType: .fance, scenarioType: .starting, side: .left, speed: sceneSpeed)
+        let tree = Scenario(objectType: .tree, scenarioType: .starting, speed: sceneSpeed)
+        let objects = [barn, rightFance, leftFance, tree]
+        for object in objects {
+            addChild(object)
+        }
+    }
+    
+    func setPositionInicialScenario() {
+        let startScenario = children.compactMap{ $0 as? Scenario }
+        let ground = childNode(withName: "screengame-ground")
+        for object in startScenario {
+            object.zPosition = 1
+            object.generateSize(
+                width: frame.width,
+                height: frame.height
+            )
+            object.generatePosition(
+                x: frame.maxX,
+                y: (ground?.frame.maxY)!
+            )
         }
     }
     
@@ -201,6 +232,7 @@ extension GameScene: SetSceneProtocol {
         createGround()
         addChild(player)
         addChild(scoreCounter)
+        createInitialScenario()
     }
     
     func setPositions() {
@@ -210,7 +242,7 @@ extension GameScene: SetSceneProtocol {
                                   y: (ground?.frame.maxY)! + 30)
 
         scoreCounter.position = CGPoint(x: self.view!.frame.midX * 1.7, y: self.view!.frame.midY * 1.8)
-
+        setPositionInicialScenario()
 
     }
     
