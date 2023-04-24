@@ -46,7 +46,7 @@ class GameScene: SKScene {
 
     let obstacleTypes: [ObstacleType] = [.hay, .chicken, .cow, .horse, .sheep]
     var numberObstacles = 5
-    var sceneSpeed: CGFloat = 0
+    var sceneSpeed: CGFloat = 4
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.canJump == true {
