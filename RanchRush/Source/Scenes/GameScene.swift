@@ -46,7 +46,7 @@ class GameScene: SKScene {
 
     let obstacleTypes: [ObstacleType] = [.hay, .chicken, .cow, .horse, .sheep]
     var numberObstacles = 5
-    var sceneSpeed: CGFloat = 4
+    var sceneSpeed: CGFloat = 0
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.canJump == true {
@@ -63,7 +63,7 @@ class GameScene: SKScene {
         setScene()
         self.physicsWorld.contactDelegate = self
         if isMusicPlaying == true {
-            playSound(name: "RanchRushBGM", extension: "mp3")
+            playSound(name: "RanchRushCroppedThree", extension: "wav")
         }
     }
 
