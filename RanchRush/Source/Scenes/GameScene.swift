@@ -43,15 +43,28 @@ class GameScene: SKScene {
         scoreCounter.fontName = "Small-Pixel"
         return scoreCounter
     }()
+    
+    var pauseButton: SKSpriteNode = {
+        let image = UIImage(systemName: "pause")?.withTintColor(.black)
+        let button = SKSpriteNode(texture: SKTexture(image: image!))
+        button.name = "pauseButton"
+        let shape = SKShapeNode(circleOfRadius: 20)
+        shape.fillColor = .white
+        shape.strokeColor = .clear
+        button.addChild(shape)
+        button.zPosition = 3
+        return button
+    }()
 
     let obstacleTypes: [ObstacleType] = [.hay, .chicken, .cow, .horse, .sheep]
     var numberObstacles = 5
     var sceneSpeed: CGFloat = 4
+    var playerImpulse: CGFloat = 110
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.canJump == true {
             player.jump()
-            player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 110), duration: 0.2))
+            player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: playerImpulse), duration: 0.2))
             self.canJump = false
         }
     }
@@ -229,6 +242,16 @@ class GameScene: SKScene {
         }
         return obstacles
     }
+    
+    func pauseGame() {
+        sceneSpeed = 0
+        playerImpulse = 0
+    }
+    
+    func startGame() {
+        sceneSpeed = 4
+        playerImpulse = 110
+    }
       
 }
     
@@ -240,6 +263,7 @@ extension GameScene: SetSceneProtocol {
         addChild(player)
         addChild(scoreCounter)
         createInitialScenario()
+        addChild(pauseButton)
     }
     
     func setPositions() {
@@ -248,9 +272,9 @@ extension GameScene: SetSceneProtocol {
         player.position = CGPoint(x: frame.minX + 100,
                                   y: (ground?.frame.maxY)! + 30)
 
-        scoreCounter.position = CGPoint(x: self.view!.frame.midX * 1.7, y: self.view!.frame.midY * 1.8)
+        scoreCounter.position = CGPoint(x: frame.midX * 1.7, y: frame.maxY * 0.9)
         setPositionInicialScenario()
-
+        pauseButton.position = CGPoint(x: frame.minX + (frame.width * 0.05), y: frame.maxY * 0.9)
     }
     
     func setPhysics() {
