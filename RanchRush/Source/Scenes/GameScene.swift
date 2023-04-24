@@ -82,7 +82,7 @@ class GameScene: SKScene {
         setScene()
         self.physicsWorld.contactDelegate = self
         if isMusicPlaying == true {
-            playSound(name: "RanchRushBGM", extension: "mp3")
+            playSound(name: "RanchRushCroppedThree", extension: "wav")
         }
         startGame()
     }
