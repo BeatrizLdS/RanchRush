@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameScene: SKScene {
 
@@ -16,15 +17,17 @@ class GameScene: SKScene {
         }
     }
 
+    var audioPlayer: AVAudioPlayer?
     var isScoreCounting: Bool = true
     var canJump: Bool = true
+    var isMusicPlaying = true
 
     var ground = SKSpriteNode()
     var sky = SKSpriteNode()
     let player: Player = {
         let player = Player()
         player.setFrames()
-        player.anchorPoint = CGPoint(x: 0.515, y: 0.15)
+        player.anchorPoint = CGPoint(x: 0.46, y: 0.2)
         player.zPosition = 2
         player.xScale = 0.5
         player.yScale = 0.5
@@ -59,6 +62,9 @@ class GameScene: SKScene {
         player.loopForever(state: .idle)
         setScene()
         self.physicsWorld.contactDelegate = self
+        if isMusicPlaying == true {
+            playSound(name: "RanchRushBGM", extension: "mp3")
+        }
     }
 
     override func update(_ currentTime: CFTimeInterval) {
@@ -201,6 +207,7 @@ class GameScene: SKScene {
                 speed: sceneSpeed
             )
             obstacle.zPosition = 2
+            obstacle.anchorPoint = CGPoint(x: 0.5, y: 0.25)
             obstacle.generatePosition(
                 x: currentXPosition,
                 y: (ground?.frame.maxY)!
@@ -210,8 +217,8 @@ class GameScene: SKScene {
                 height: frame.height
             )
             obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(
-                width: obstacle.size.width * 0.2,
-                height: obstacle.size.height * 0.2))
+                width: obstacle.size.width * 0.4,
+                height: obstacle.size.height * 0.36))
             obstacle.physicsBody?.affectedByGravity = false
             obstacle.physicsBody?.categoryBitMask = CollisionType.obstacle.rawValue
             obstacle.physicsBody?.isDynamic = false
@@ -260,6 +267,9 @@ extension GameScene: SKPhysicsContactDelegate {
         if let nodeB = contact.bodyB.node, let nodeA = contact.bodyA.node {
             if nodeB.name == "obstacle" {
 
+                //parado a música
+                audioPlayer?.stop()
+
                 //parando o contador
                 self.isScoreCounting = false
 
@@ -273,8 +283,8 @@ extension GameScene: SKPhysicsContactDelegate {
                 //salvando novo recorde
                 if scoreValue > UserDefaults.standard.integer(forKey: "record") {
                     UserDefaults.standard.set(self.scoreValue, forKey: "record")
-
                 }
+
             }
             if nodeA.name == "screengame-ground" {
                 self.canJump = true
