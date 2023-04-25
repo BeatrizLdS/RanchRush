@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		361AA31C29F6C55E002F75FA /* RanchRushCroppedThree.wav in Resources */ = {isa = PBXBuildFile; fileRef = 361AA31B29F6C55E002F75FA /* RanchRushCroppedThree.wav */; };
 		364F5A3A29E6E7A20037CD6A /* MotobikerIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */; };
 		364F5A3C29E6F7610037CD6A /* GameSceneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F5A3B29E6F7610037CD6A /* GameSceneExtension.swift */; };
-		364F5A3F29E6F8F50037CD6A /* RanchRushBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364F5A3E29E6F8F50037CD6A /* RanchRushBGM.mp3 */; };
 		368A459129E43D5E0007BF5B /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459029E43D5E0007BF5B /* Collisions.swift */; };
 		368A459329E447E30007BF5B /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459229E447E30007BF5B /* TitleScene.swift */; };
 		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
@@ -34,9 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		361AA31B29F6C55E002F75FA /* RanchRushCroppedThree.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RanchRushCroppedThree.wav; sourceTree = "<group>"; };
 		364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MotobikerIdle.atlas; sourceTree = "<group>"; };
 		364F5A3B29E6F7610037CD6A /* GameSceneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneExtension.swift; sourceTree = "<group>"; };
-		364F5A3E29E6F8F50037CD6A /* RanchRushBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RanchRushBGM.mp3; sourceTree = "<group>"; };
 		368A459029E43D5E0007BF5B /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		368A459229E447E30007BF5B /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		364F5A3D29E6F8E90037CD6A /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				364F5A3E29E6F8F50037CD6A /* RanchRushBGM.mp3 */,
+				361AA31B29F6C55E002F75FA /* RanchRushCroppedThree.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -255,9 +255,9 @@
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
 				49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */,
 				FF21041729E594EA00450F05 /* Cow.atlas in Resources */,
-				364F5A3F29E6F8F50037CD6A /* RanchRushBGM.mp3 in Resources */,
 				FF21041929E5989600450F05 /* Horse.atlas in Resources */,
 				FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */,
+				361AA31C29F6C55E002F75FA /* RanchRushCroppedThree.wav in Resources */,
 				FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */,
 				FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */,
 				FF21041D29E59B8B00450F05 /* Hay.atlas in Resources */,
@@ -431,7 +431,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NTS86MKTBV;
+				DEVELOPMENT_TEAM = 8D2H27TXKN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Ranch Rush";
@@ -466,7 +466,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NTS86MKTBV;
+				DEVELOPMENT_TEAM = 8D2H27TXKN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Ranch Rush";

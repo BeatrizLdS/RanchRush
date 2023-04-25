@@ -15,6 +15,7 @@ extension GameScene {
         let url = Bundle.main.url(forResource: name, withExtension: `extension`)
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: url!)
+            audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
         } catch {
             print(error)
