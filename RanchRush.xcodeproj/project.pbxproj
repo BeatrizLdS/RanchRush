@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		361AA31C29F6C55E002F75FA /* RanchRushCroppedThree.wav in Resources */ = {isa = PBXBuildFile; fileRef = 361AA31B29F6C55E002F75FA /* RanchRushCroppedThree.wav */; };
+		364F5A3A29E6E7A20037CD6A /* MotobikerIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */; };
+		364F5A3C29E6F7610037CD6A /* GameSceneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F5A3B29E6F7610037CD6A /* GameSceneExtension.swift */; };
+		368A459129E43D5E0007BF5B /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459029E43D5E0007BF5B /* Collisions.swift */; };
+		368A459329E447E30007BF5B /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459229E447E30007BF5B /* TitleScene.swift */; };
+		368A459529E447F40007BF5B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A459429E447F40007BF5B /* GameOverScene.swift */; };
+		49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49259EB729E58C0F0036131F /* small_pixel.ttf */; };
+		FF0EB39429E6C65E002065A9 /* ScenarioObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0EB39329E6C65E002065A9 /* ScenarioObjects.swift */; };
+		FF0EB39629E6C702002065A9 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0EB39529E6C702002065A9 /* Scenario.swift */; };
+		FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */; };
+		FF21041729E594EA00450F05 /* Cow.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041629E594EA00450F05 /* Cow.atlas */; };
+		FF21041929E5989600450F05 /* Horse.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041829E5989600450F05 /* Horse.atlas */; };
+		FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041A29E5992F00450F05 /* Sheep.atlas */; };
+		FF21041D29E59B8B00450F05 /* Hay.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FF21041C29E59B8B00450F05 /* Hay.atlas */; };
+		FF21041F29E59C4900450F05 /* ObstaclesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21041E29E59C4900450F05 /* ObstaclesTypes.swift */; };
 		FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650029DAFF6E008E711C /* AppDelegate.swift */; };
 		FF30650729DAFF6E008E711C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650629DAFF6E008E711C /* GameScene.swift */; };
 		FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30650829DAFF6E008E711C /* GameViewController.swift */; };
@@ -14,9 +29,27 @@
 		FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF30650D29DAFF6F008E711C /* Assets.xcassets */; };
 		FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF30650F29DAFF6F008E711C /* LaunchScreen.storyboard */; };
 		FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */; };
+		FF30652629DC4EF8008E711C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30652529DC4EF8008E711C /* Player.swift */; };
+		FF30652B29DC5B0F008E711C /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30652A29DC5B0F008E711C /* Obstacle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		361AA31B29F6C55E002F75FA /* RanchRushCroppedThree.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RanchRushCroppedThree.wav; sourceTree = "<group>"; };
+		364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MotobikerIdle.atlas; sourceTree = "<group>"; };
+		364F5A3B29E6F7610037CD6A /* GameSceneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneExtension.swift; sourceTree = "<group>"; };
+		368A459029E43D5E0007BF5B /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
+		368A459229E447E30007BF5B /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		368A459429E447F40007BF5B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		49259EB729E58C0F0036131F /* small_pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = small_pixel.ttf; sourceTree = "<group>"; };
+		49259EB929E58C610036131F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FF0EB39329E6C65E002065A9 /* ScenarioObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjects.swift; sourceTree = "<group>"; };
+		FF0EB39529E6C702002065A9 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
+		FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtension.swift; sourceTree = "<group>"; };
+		FF21041629E594EA00450F05 /* Cow.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Cow.atlas; sourceTree = "<group>"; };
+		FF21041829E5989600450F05 /* Horse.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Horse.atlas; sourceTree = "<group>"; };
+		FF21041A29E5992F00450F05 /* Sheep.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sheep.atlas; sourceTree = "<group>"; };
+		FF21041C29E59B8B00450F05 /* Hay.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hay.atlas; sourceTree = "<group>"; };
+		FF21041E29E59C4900450F05 /* ObstaclesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstaclesTypes.swift; sourceTree = "<group>"; };
 		FF3064FD29DAFF6E008E711C /* RanchRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF30650029DAFF6E008E711C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF30650629DAFF6E008E711C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -25,6 +58,8 @@
 		FF30650D29DAFF6F008E711C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF30651029DAFF6F008E711C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSceneProtocol.swift; sourceTree = "<group>"; };
+		FF30652529DC4EF8008E711C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		FF30652A29DC5B0F008E711C /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364F5A3D29E6F8E90037CD6A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				361AA31B29F6C55E002F75FA /* RanchRushCroppedThree.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		368A458F29E43D4D0007BF5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				368A459029E43D5E0007BF5B /* Collisions.swift */,
+				FF0EB39329E6C65E002065A9 /* ScenarioObjects.swift */,
+				FF21041E29E59C4900450F05 /* ObstaclesTypes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FF3064F429DAFF6E008E711C = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +110,7 @@
 		FF3064FF29DAFF6E008E711C /* RanchRush */ = {
 			isa = PBXGroup;
 			children = (
+				49259EB929E58C610036131F /* Info.plist */,
 				FF30651A29DB0306008E711C /* Resource */,
 				FF30651829DB02F7008E711C /* Source */,
 				FF30651729DB02ED008E711C /* Application */,
@@ -78,6 +132,7 @@
 		FF30651829DB02F7008E711C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				368A458F29E43D4D0007BF5B /* Model */,
 				FF30651E29DB0537008E711C /* Protocols */,
 				FF30651D29DB052D008E711C /* SpriteNodes */,
 				FF30651C29DB0505008E711C /* Extensions */,
@@ -89,6 +144,13 @@
 		FF30651A29DB0306008E711C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				364F5A3D29E6F8E90037CD6A /* Sounds */,
+				49259EB729E58C0F0036131F /* small_pixel.ttf */,
+				364F5A3929E6E7A20037CD6A /* MotobikerIdle.atlas */,
+				FF21041C29E59B8B00450F05 /* Hay.atlas */,
+				FF21041A29E5992F00450F05 /* Sheep.atlas */,
+				FF21041829E5989600450F05 /* Horse.atlas */,
+				FF21041629E594EA00450F05 /* Cow.atlas */,
 				FF30650D29DAFF6F008E711C /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -97,7 +159,9 @@
 		FF30651B29DB04F8008E711C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				368A459229E447E30007BF5B /* TitleScene.swift */,
 				FF30650629DAFF6E008E711C /* GameScene.swift */,
+				368A459429E447F40007BF5B /* GameOverScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -105,6 +169,8 @@
 		FF30651C29DB0505008E711C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */,
+				364F5A3B29E6F7610037CD6A /* GameSceneExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -112,6 +178,9 @@
 		FF30651D29DB052D008E711C /* SpriteNodes */ = {
 			isa = PBXGroup;
 			children = (
+				FF30652A29DC5B0F008E711C /* Obstacle.swift */,
+				FF30652529DC4EF8008E711C /* Player.swift */,
+				FF0EB39529E6C702002065A9 /* Scenario.swift */,
 			);
 			path = SpriteNodes;
 			sourceTree = "<group>";
@@ -182,9 +251,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364F5A3A29E6E7A20037CD6A /* MotobikerIdle.atlas in Resources */,
 				FF30650C29DAFF6E008E711C /* Main.storyboard in Resources */,
+				49259EB829E58C0F0036131F /* small_pixel.ttf in Resources */,
+				FF21041729E594EA00450F05 /* Cow.atlas in Resources */,
+				FF21041929E5989600450F05 /* Horse.atlas in Resources */,
+				FF21041B29E5992F00450F05 /* Sheep.atlas in Resources */,
+				361AA31C29F6C55E002F75FA /* RanchRushCroppedThree.wav in Resources */,
 				FF30650E29DAFF6F008E711C /* Assets.xcassets in Resources */,
 				FF30651129DAFF6F008E711C /* LaunchScreen.storyboard in Resources */,
+				FF21041D29E59B8B00450F05 /* Hay.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,10 +271,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368A459529E447F40007BF5B /* GameOverScene.swift in Sources */,
 				FF30650729DAFF6E008E711C /* GameScene.swift in Sources */,
+				FF0EB39429E6C65E002065A9 /* ScenarioObjects.swift in Sources */,
 				FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */,
+				368A459129E43D5E0007BF5B /* Collisions.swift in Sources */,
+				FF30652B29DC5B0F008E711C /* Obstacle.swift in Sources */,
 				FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */,
+				368A459329E447E30007BF5B /* TitleScene.swift in Sources */,
+				FF30652629DC4EF8008E711C /* Player.swift in Sources */,
+				FF0EB39629E6C702002065A9 /* Scenario.swift in Sources */,
+				FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */,
 				FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */,
+				364F5A3C29E6F7610037CD6A /* GameSceneExtension.swift in Sources */,
+				FF21041F29E59C4900450F05 /* ObstaclesTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,14 +431,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NTS86MKTBV;
+				DEVELOPMENT_TEAM = 8D2H27TXKN;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RanchRush/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ranch Rush";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,9 +450,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beatrizlds.RanchRush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -373,14 +466,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NTS86MKTBV;
+				DEVELOPMENT_TEAM = 8D2H27TXKN;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RanchRush/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ranch Rush";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,9 +485,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beatrizlds.RanchRush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
