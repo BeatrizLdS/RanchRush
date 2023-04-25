@@ -43,16 +43,35 @@ class GameScene: SKScene {
         scoreCounter.fontName = "Small-Pixel"
         return scoreCounter
     }()
+    
+    var pauseButton: SKSpriteNode = {
+        let image = UIImage(systemName: "pause")?.withTintColor(.black)
+        let button = SKSpriteNode(texture: SKTexture(image: image!))
+        let shape = SKShapeNode(circleOfRadius: 20)
+        shape.fillColor = .white
+        shape.strokeColor = .clear
+        button.addChild(shape)
+        button.zPosition = 3
+        return button
+    }()
 
     let obstacleTypes: [ObstacleType] = [.hay, .chicken, .cow, .horse, .sheep]
     var numberObstacles = 5
     var sceneSpeed: CGFloat = 4
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.canJump == true {
-            player.jump()
-            player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: 110), duration: 0.2))
-            self.canJump = false
+        guard let touch = touches.first else {return}
+        let touchLocation = touch.location(in: self)
+        
+        if pauseButton.contains(touchLocation) {
+            if isPaused {
+                startGame()
+                audioPlayer?.play()
+            } else {
+                pauseGame()
+            }
+        } else if isPaused ==  false {
+            playerJump()
         }
     }
     
@@ -65,6 +84,7 @@ class GameScene: SKScene {
         if isMusicPlaying == true {
             playSound(name: "RanchRushCroppedThree", extension: "wav")
         }
+        startGame()
     }
 
     override func update(_ currentTime: CFTimeInterval) {
@@ -85,6 +105,14 @@ class GameScene: SKScene {
             if numberObstacles < 30 {
                 numberObstacles += 2
             }
+        }
+    }
+    
+    func playerJump() {
+        if self.canJump == true {
+            player.jump()
+            player.run(SKAction.applyImpulse(CGVector(dx: 0, dy: frame.height * 0.3), duration: 0.2))
+            self.canJump = false
         }
     }
     
@@ -229,6 +257,20 @@ class GameScene: SKScene {
         }
         return obstacles
     }
+    
+    func pauseGame() {
+        audioPlayer?.pause()
+        let image = UIImage(systemName: "play.fill")?.withTintColor(.black)
+        pauseButton.texture = SKTexture(image: image!)
+        self.isPaused = true
+    }
+    
+    func startGame() {
+        let image = UIImage(systemName: "pause")?.withTintColor(.black)
+        pauseButton.texture = SKTexture(image: image!)
+        pauseButton.position = CGPoint(x: frame.minX + (frame.width * 0.05), y: frame.maxY * 0.9)
+        self.isPaused = false
+    }
       
 }
     
@@ -240,6 +282,7 @@ extension GameScene: SetSceneProtocol {
         addChild(player)
         addChild(scoreCounter)
         createInitialScenario()
+        addChild(pauseButton)
     }
     
     func setPositions() {
@@ -248,9 +291,8 @@ extension GameScene: SetSceneProtocol {
         player.position = CGPoint(x: frame.minX + 100,
                                   y: (ground?.frame.maxY)! + 30)
 
-        scoreCounter.position = CGPoint(x: self.view!.frame.midX * 1.7, y: self.view!.frame.midY * 1.8)
+        scoreCounter.position = CGPoint(x: frame.midX * 1.7, y: frame.maxY * 0.9)
         setPositionInicialScenario()
-
     }
     
     func setPhysics() {
