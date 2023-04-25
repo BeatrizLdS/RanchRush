@@ -70,7 +70,7 @@ class GameScene: SKScene {
             } else {
                 pauseGame()
             }
-        } else {
+        } else if isPaused ==  false {
             playerJump()
         }
     }
@@ -259,7 +259,7 @@ class GameScene: SKScene {
     }
     
     func pauseGame() {
-        audioPlayer?.stop()
+        audioPlayer?.pause()
         let image = UIImage(systemName: "play.fill")?.withTintColor(.black)
         pauseButton.texture = SKTexture(image: image!)
         self.isPaused = true
