@@ -276,6 +276,7 @@ class GameScene: SKScene {
     }
     
     func pauseGame() {
+        self.popUp?.removeFromSuperview()
         audioPlayer?.pause()
         popUp = PopUpView()
         popUp!.delegate = self
