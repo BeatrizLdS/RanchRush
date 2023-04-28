@@ -11,6 +11,8 @@ import AVFoundation
 
 class GameScene: SKScene {
 
+    var popUp: PopUpView?
+    
     var realPaused = false {
         didSet {
             isPaused = realPaused
@@ -59,9 +61,10 @@ class GameScene: SKScene {
     }()
     
     var pauseButton: SKSpriteNode = {
-        let image = UIImage(systemName: "pause")?.withTintColor(.black)
+        let size = UIImage.SymbolConfiguration(pointSize: 18, weight: .medium, scale: .medium)
+        let image = UIImage(systemName: "pause", withConfiguration: size)?.withTintColor(.black)
         let button = SKSpriteNode(texture: SKTexture(image: image!))
-        let shape = SKShapeNode(circleOfRadius: 20)
+        let shape = SKShapeNode(circleOfRadius: 22)
         shape.fillColor = .white
         shape.strokeColor = .clear
         button.addChild(shape)
@@ -91,7 +94,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint.zero
-        backgroundColor = UIColor(named: "background")!
+        backgroundColor = .gameBackground
         player.loopForever(state: .idle)
         setScene()
         self.physicsWorld.contactDelegate = self
@@ -274,15 +277,14 @@ class GameScene: SKScene {
     
     func pauseGame() {
         audioPlayer?.pause()
-        let image = UIImage(systemName: "play.fill")?.withTintColor(.black)
-        pauseButton.texture = SKTexture(image: image!)
+        popUp = PopUpView()
+        popUp!.delegate = self
+        self.view?.addSubview(popUp!)
         self.realPaused = true
     }
     
     func startGame() {
-        let image = UIImage(systemName: "pause")?.withTintColor(.black)
-        pauseButton.texture = SKTexture(image: image!)
-        pauseButton.position = CGPoint(x: frame.minX + (frame.width * 0.05), y: frame.maxY * 0.9)
+        pauseButton.position = CGPoint(x: frame.minX + (frame.width * 0.08), y: frame.maxY * 0.9)
         self.realPaused = false
     }
       
@@ -346,5 +348,11 @@ extension GameScene: SKPhysicsContactDelegate {
                 self.canJump = true
             }
         }
+    }
+}
+
+extension GameScene: PauseProtocol {
+    func gameResume() {
+        startGame()
     }
 }
