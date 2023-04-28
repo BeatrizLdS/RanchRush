@@ -11,6 +11,20 @@ import AVFoundation
 
 class GameScene: SKScene {
 
+    var realPaused = false {
+        didSet {
+            isPaused = realPaused
+        }
+    }
+    
+    override var isPaused: Bool {
+        didSet {
+            if (self.realPaused != self.isPaused) {
+                self.isPaused = self.realPaused
+            }
+        }
+    }
+    
     var scoreValue = 0{
         didSet{
             scoreCounter.text = "SCORE: \(scoreValue)"
@@ -262,14 +276,14 @@ class GameScene: SKScene {
         audioPlayer?.pause()
         let image = UIImage(systemName: "play.fill")?.withTintColor(.black)
         pauseButton.texture = SKTexture(image: image!)
-        self.isPaused = true
+        self.realPaused = true
     }
     
     func startGame() {
         let image = UIImage(systemName: "pause")?.withTintColor(.black)
         pauseButton.texture = SKTexture(image: image!)
         pauseButton.position = CGPoint(x: frame.minX + (frame.width * 0.05), y: frame.maxY * 0.9)
-        self.isPaused = false
+        self.realPaused = false
     }
       
 }
@@ -330,7 +344,6 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             if nodeA.name == "screengame-ground" {
                 self.canJump = true
-                
             }
         }
     }
