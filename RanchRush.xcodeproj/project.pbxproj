@@ -31,6 +31,10 @@
 		FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */; };
 		FF30652629DC4EF8008E711C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30652529DC4EF8008E711C /* Player.swift */; };
 		FF30652B29DC5B0F008E711C /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30652A29DC5B0F008E711C /* Obstacle.swift */; };
+		FFEB88C129FC367B004D0112 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB88C029FC367B004D0112 /* PopUpView.swift */; };
+		FFEB88C329FC36BF004D0112 /* SetViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB88C229FC36BF004D0112 /* SetViewProtocol.swift */; };
+		FFEB88C529FC3A1A004D0112 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB88C429FC3A1A004D0112 /* UIColorExtension.swift */; };
+		FFEB88C729FC43C4004D0112 /* PauseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB88C629FC43C4004D0112 /* PauseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSceneProtocol.swift; sourceTree = "<group>"; };
 		FF30652529DC4EF8008E711C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FF30652A29DC5B0F008E711C /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
+		FFEB88C029FC367B004D0112 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		FFEB88C229FC36BF004D0112 /* SetViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewProtocol.swift; sourceTree = "<group>"; };
+		FFEB88C429FC3A1A004D0112 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		FFEB88C629FC43C4004D0112 /* PauseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,7 @@
 		FF30651829DB02F7008E711C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FFEB88BF29FC3663004D0112 /* Views */,
 				368A458F29E43D4D0007BF5B /* Model */,
 				FF30651E29DB0537008E711C /* Protocols */,
 				FF30651D29DB052D008E711C /* SpriteNodes */,
@@ -171,6 +180,7 @@
 			children = (
 				FF21040529DDA94000450F05 /* SKSpriteNodeExtension.swift */,
 				364F5A3B29E6F7610037CD6A /* GameSceneExtension.swift */,
+				FFEB88C429FC3A1A004D0112 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -189,8 +199,18 @@
 			isa = PBXGroup;
 			children = (
 				FF30651F29DB0FE0008E711C /* SetSceneProtocol.swift */,
+				FFEB88C229FC36BF004D0112 /* SetViewProtocol.swift */,
+				FFEB88C629FC43C4004D0112 /* PauseProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FFEB88BF29FC3663004D0112 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFEB88C029FC367B004D0112 /* PopUpView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,10 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFEB88C529FC3A1A004D0112 /* UIColorExtension.swift in Sources */,
+				FFEB88C129FC367B004D0112 /* PopUpView.swift in Sources */,
 				368A459529E447F40007BF5B /* GameOverScene.swift in Sources */,
 				FF30650729DAFF6E008E711C /* GameScene.swift in Sources */,
 				FF0EB39429E6C65E002065A9 /* ScenarioObjects.swift in Sources */,
 				FF30652029DB0FE0008E711C /* SetSceneProtocol.swift in Sources */,
+				FFEB88C329FC36BF004D0112 /* SetViewProtocol.swift in Sources */,
 				368A459129E43D5E0007BF5B /* Collisions.swift in Sources */,
 				FF30652B29DC5B0F008E711C /* Obstacle.swift in Sources */,
 				FF30650929DAFF6E008E711C /* GameViewController.swift in Sources */,
@@ -282,6 +305,7 @@
 				FF30652629DC4EF8008E711C /* Player.swift in Sources */,
 				FF0EB39629E6C702002065A9 /* Scenario.swift in Sources */,
 				FF21040629DDA94000450F05 /* SKSpriteNodeExtension.swift in Sources */,
+				FFEB88C729FC43C4004D0112 /* PauseProtocol.swift in Sources */,
 				FF30650129DAFF6E008E711C /* AppDelegate.swift in Sources */,
 				364F5A3C29E6F7610037CD6A /* GameSceneExtension.swift in Sources */,
 				FF21041F29E59C4900450F05 /* ObstaclesTypes.swift in Sources */,
@@ -360,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -414,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -431,7 +455,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8D2H27TXKN;
+				DEVELOPMENT_TEAM = NTS86MKTBV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Ranch Rush";
@@ -442,7 +466,6 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8D2H27TXKN;
+				DEVELOPMENT_TEAM = NTS86MKTBV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RanchRush/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Ranch Rush";
@@ -477,7 +500,6 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

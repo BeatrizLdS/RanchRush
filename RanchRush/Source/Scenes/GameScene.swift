@@ -11,6 +11,22 @@ import AVFoundation
 
 class GameScene: SKScene {
 
+    var popUp: PopUpView?
+    
+    var realPaused = false {
+        didSet {
+            isPaused = realPaused
+        }
+    }
+    
+    override var isPaused: Bool {
+        didSet {
+            if (self.realPaused != self.isPaused) {
+                self.isPaused = self.realPaused
+            }
+        }
+    }
+    
     var scoreValue = 0{
         didSet{
             scoreCounter.text = "SCORE: \(scoreValue)"
@@ -45,9 +61,10 @@ class GameScene: SKScene {
     }()
     
     var pauseButton: SKSpriteNode = {
-        let image = UIImage(systemName: "pause")?.withTintColor(.black)
+        let size = UIImage.SymbolConfiguration(pointSize: 18, weight: .medium, scale: .medium)
+        let image = UIImage(systemName: "pause", withConfiguration: size)?.withTintColor(.black)
         let button = SKSpriteNode(texture: SKTexture(image: image!))
-        let shape = SKShapeNode(circleOfRadius: 20)
+        let shape = SKShapeNode(circleOfRadius: 22)
         shape.fillColor = .white
         shape.strokeColor = .clear
         button.addChild(shape)
@@ -77,7 +94,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint.zero
-        backgroundColor = UIColor(named: "background")!
+        backgroundColor = .gameBackground
         player.loopForever(state: .idle)
         setScene()
         self.physicsWorld.contactDelegate = self
@@ -259,17 +276,17 @@ class GameScene: SKScene {
     }
     
     func pauseGame() {
+        self.popUp?.removeFromSuperview()
         audioPlayer?.pause()
-        let image = UIImage(systemName: "play.fill")?.withTintColor(.black)
-        pauseButton.texture = SKTexture(image: image!)
-        self.isPaused = true
+        popUp = PopUpView()
+        popUp!.delegate = self
+        self.view?.addSubview(popUp!)
+        self.realPaused = true
     }
     
     func startGame() {
-        let image = UIImage(systemName: "pause")?.withTintColor(.black)
-        pauseButton.texture = SKTexture(image: image!)
-        pauseButton.position = CGPoint(x: frame.minX + (frame.width * 0.05), y: frame.maxY * 0.9)
-        self.isPaused = false
+        pauseButton.position = CGPoint(x: frame.minX + (frame.width * 0.08), y: frame.maxY * 0.9)
+        self.realPaused = false
     }
       
 }
@@ -330,8 +347,13 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             if nodeA.name == "screengame-ground" {
                 self.canJump = true
-                
             }
         }
+    }
+}
+
+extension GameScene: PauseProtocol {
+    func gameResume() {
+        startGame()
     }
 }

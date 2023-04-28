@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) { }
 
-    func applicationDidBecomeActive(_ application: UIApplication) { }
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        guard let skView = self.window?.rootViewController?.view as? SKView else { return }
+        if let skScene = skView.scene as? GameScene {
+            skScene.pauseGame()
+        }
+    }
 
 }
 
